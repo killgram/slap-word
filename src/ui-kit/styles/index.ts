@@ -3,6 +3,7 @@ import ApplicationStyles from './ApplicationStyles'
 import Buttons from './Buttons'
 import Inputs from './Inputs'
 import { defaultHeaderStyle } from './HeaderStyles'
+import Fonts from './Fonts'
 
 export {
   Colors,
@@ -12,4 +13,5 @@ export {
   Buttons,
   Inputs,
   defaultHeaderStyle,
+  Fonts,
 }

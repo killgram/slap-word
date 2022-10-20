@@ -1,8 +1,8 @@
 import React from 'react'
-import { Button, Text } from 'react-native'
+import { Button } from 'react-native'
 import { ISignInScreenTypesProps } from './SignInTypes'
 import getStyle from './SignInStyles'
-import { SWContainer } from '@ui-kit/components'
+import { SWContainer, SWText, SWIcon } from '@ui-kit/components'
 import { Navigate } from '@navigators'
 
 /**
@@ -16,7 +16,9 @@ const SignInScreen = (props: ISignInScreenTypesProps) => {
 
   return (
     <SWContainer>
-      <Text>SignInScreen</Text>
+      <SWText size={24}>SignInScreen</SWText>
+      <SWIcon iconName="exit" iconSize={40} iconColor="red" />
+
       <Button title="sign up" onPress={Navigate.toSignUpScreen} />
     </SWContainer>
   )
