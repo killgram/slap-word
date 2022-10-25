@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   baseButtonStyle: {
-    borderRadius: radius(8),
+    borderRadius: radius(2),
     height: height(56),
     alignItems: 'center',
     justifyContent: 'center',

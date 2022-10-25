@@ -10,6 +10,7 @@ export enum Colors {
   CARROT_ORANGE = '#ed9121',
   TROLL_SLAYER_ORANGE = '#f5a34c',
   ARAGON_GREEN = '#4eb787',
+  LUXE_LILAC = '#a8a4b0',
 }
 
 export enum LightColors {
@@ -34,4 +35,7 @@ export enum LightColors {
   ERROR_INPUT = Colors.SUNSET_RIDERS,
   TRANSPARENT_INPUT = Colors.TRANSPARENT,
   BORDER_INPUT = Colors.OCEAN_STORM,
+  // modals
+  MODAL_BACKGROUND = Colors.OCEAN_STORM,
+  MODAL_CONTAINER_BACKGROUND = Colors.LUXE_LILAC,
 }
