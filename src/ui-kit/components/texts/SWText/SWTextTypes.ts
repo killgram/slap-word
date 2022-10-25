@@ -4,7 +4,6 @@ import React from 'react'
 export interface ISWTextProps extends TextProps {
   children: React.ReactNode
   isTitle?: boolean
-  isHeading?: boolean
   isSecondary?: boolean
   isError?: boolean
   isLink?: boolean

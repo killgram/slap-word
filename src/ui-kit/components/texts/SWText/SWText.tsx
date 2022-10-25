@@ -13,7 +13,6 @@ const SWText = (props: ISWTextProps) => {
   const {
     children,
     isTitle,
-    isHeading,
     isSecondary,
     isError,
     isLink,
@@ -28,7 +27,6 @@ const SWText = (props: ISWTextProps) => {
     <Text
       style={StyleSheet.flatten([
         styles.font,
-        isHeading && styles.heading,
         isTitle && styles.title,
         isSecondary && styles.secondary,
         isError && styles.error,

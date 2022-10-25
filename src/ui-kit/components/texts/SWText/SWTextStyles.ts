@@ -5,7 +5,6 @@ import { getThemeColor, RNStyleType } from '@utils'
 
 interface IStyles {
   font: RNStyleType
-  heading: RNStyleType
   title: RNStyleType
   secondary: RNStyleType
   link: RNStyleType
@@ -21,11 +20,6 @@ export default function getStyle(): IStyles {
       ...Fonts.baseFontStyle,
       ...Fonts.regular,
       color: getThemeColor('MAIN_TEXT'),
-    },
-    heading: {
-      ...Fonts.bold,
-      fontSize: sp(32),
-      lineHeight: sp(32),
     },
     title: {
       ...Fonts.bold,

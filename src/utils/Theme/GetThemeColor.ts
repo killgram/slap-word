@@ -1,11 +1,10 @@
-import { LightColors, DarkColors } from '@ui-kit/styles'
+import { LightColors } from '@ui-kit/styles'
 import { IThemes, ThemeType } from '@utils'
 import { StatusBarStyle } from 'react-native'
 import { IStatusBarThemes } from '@utils'
 
 const themes: IThemes = {
   light: { ...LightColors },
-  dark: { ...DarkColors },
 }
 
 const statusBarThemes: IStatusBarThemes = {
