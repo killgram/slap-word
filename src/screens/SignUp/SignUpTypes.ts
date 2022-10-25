@@ -1,6 +1,9 @@
 import { app } from '@store/types'
+import { NavigationType } from '@navigators'
 
-interface IStateToProps {}
+interface IStateToProps {
+  navigation?: NavigationType
+}
 
 export interface IState {}
 

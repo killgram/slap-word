@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import { Text } from 'react-native'
 import { ISignUpScreenTypesProps } from './SignUpTypes'
 import getStyle from './SignUpStyles'
@@ -10,11 +10,17 @@ import { SWContainer } from '@ui-kit/components'
  * @return {JSX}
  */
 const SignUpScreen = (props: ISignUpScreenTypesProps) => {
-  const {} = props
+  const { navigation } = props
   const styles = getStyle()
 
+  useLayoutEffect(() => {
+    navigation?.setOptions({
+      headerTitle: 'Регистрация',
+    })
+  }, [])
+
   return (
-    <SWContainer>
+    <SWContainer isTransparentHeader>
       <Text>SignUpScreen</Text>
     </SWContainer>
   )

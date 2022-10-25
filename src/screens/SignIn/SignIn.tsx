@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import { ISignInScreenTypesProps } from './SignInTypes'
 import getStyle from './SignInStyles'
 import { SWContainer, SWText, SWButton } from '@ui-kit/components'
@@ -10,8 +10,14 @@ import { Navigate } from '@navigators'
  * @return {JSX}
  */
 const SignInScreen = (props: ISignInScreenTypesProps) => {
-  const {} = props
+  const { navigation } = props
   const styles = getStyle()
+
+  useLayoutEffect(() => {
+    navigation?.setOptions({
+      headerTitle: () => null,
+    })
+  }, [])
 
   return (
     <SWContainer>

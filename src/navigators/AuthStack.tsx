@@ -1,5 +1,8 @@
 import React from 'react'
-import { createStackNavigator } from '@react-navigation/stack'
+import {
+  CardStyleInterpolators,
+  createStackNavigator,
+} from '@react-navigation/stack'
 import { defaultHeaderStyle } from '@ui-kit/styles'
 
 const Stack = createStackNavigator()
@@ -17,7 +20,7 @@ const AuthStack = () => {
       initialRouteName="SignInScreen"
       screenOptions={{
         ...defaultHeaderStyle,
-        headerShown: false,
+        cardStyleInterpolator: CardStyleInterpolators.forFadeFromCenter,
       }}
     >
       <Stack.Screen name="SignInScreen" component={SignInScreen} />

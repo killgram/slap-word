@@ -5,7 +5,7 @@ const defaultHeaderStyle: StackNavigationOptions = {
   headerTransparent: true,
   headerBackTitleVisible: false,
   headerTitleAllowFontScaling: true,
-  headerTintColor: getThemeColor('SECONDARY_TEXT'),
+  headerTintColor: getThemeColor('MAIN_TEXT'),
 }
 
 export { defaultHeaderStyle }
