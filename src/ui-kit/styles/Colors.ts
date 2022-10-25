@@ -9,8 +9,7 @@ export enum Colors {
   OCEAN_STORM = '#3d6a7f',
   CARROT_ORANGE = '#ed9121',
   TROLL_SLAYER_ORANGE = '#f5a34c',
-
-  test = '#f5a34c',
+  ARAGON_GREEN = '#4eb787',
 }
 
 export enum LightColors {
@@ -28,4 +27,11 @@ export enum LightColors {
   PRESSED_SECONDARY_BUTTONS = Colors.TROLL_SLAYER_ORANGE,
   BUTTONS_LOADER = Colors.TRANSPARENT,
   TRANSPARENT_BUTTONS = Colors.TRANSPARENT,
+  // inputs
+  PLACEHOLDER_INPUT = Colors.OCEAN_STORM,
+  DISABLE_INPUT = Colors.OCEAN_STORM,
+  BACKGROUND_INPUT = Colors.ARAGON_GREEN,
+  ERROR_INPUT = Colors.SUNSET_RIDERS,
+  TRANSPARENT_INPUT = Colors.TRANSPARENT,
+  BORDER_INPUT = Colors.OCEAN_STORM,
 }

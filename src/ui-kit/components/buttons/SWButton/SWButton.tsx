@@ -58,8 +58,7 @@ const SWButton = (props: ISWButtonProps) => {
         isSecondary
         isLink={isTransparent}
         style={StyleSheet.flatten([
-          isSecondary && styles.textSecondary,
-          isTransparent && styles.textTransparent,
+          (isSecondary || isTransparent) && styles.textTransparent,
           titleStyle,
         ])}
       >

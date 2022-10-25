@@ -2,7 +2,13 @@ import React from 'react'
 import { Button } from 'react-native'
 import { ISignInScreenTypesProps } from './SignInTypes'
 import getStyle from './SignInStyles'
-import { SWContainer, SWText, SWIcon, SWButton } from '@ui-kit/components'
+import {
+  SWContainer,
+  SWText,
+  SWIcon,
+  SWButton,
+  SWInput,
+} from '@ui-kit/components'
 import { Navigate } from '@navigators'
 
 /**
@@ -36,6 +42,9 @@ const SignInScreen = (props: ISignInScreenTypesProps) => {
       <SWButton isDisabled title="isDisabled" />
       <SWButton isTransparent title="isTransparent" />
       <SWButton isLoading title="isLoading" />
+
+      <SWInput error="error!" value="sdfdfjdshfjdsbhfjkds" />
+      <SWInput placeholder="placeholder" />
 
       <Button title="sign up" onPress={Navigate.toSignUpScreen} />
     </SWContainer>
