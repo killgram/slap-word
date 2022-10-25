@@ -3,6 +3,7 @@ import { ISignInScreenTypesProps } from './SignInTypes'
 import getStyle from './SignInStyles'
 import { SWContainer, SWText, SWButton } from '@ui-kit/components'
 import { Navigate } from '@navigators'
+import { Domains } from '@configurations'
 
 /**
  * @description SignInScreen
@@ -22,7 +23,7 @@ const SignInScreen = (props: ISignInScreenTypesProps) => {
   return (
     <SWContainer>
       <SWText isTitle size={24}>
-        SignInScreen
+        {Domains.getR3D3InfoDomain()}
       </SWText>
       <SWText isSecondary size={24}>
         SignInScreen
