@@ -1,19 +1,31 @@
 import Sound from 'react-native-sound'
-import { SoundTypes, SoundList } from '@utils'
+import { SoundTypes, SoundList, errorToast } from '@utils'
 
 /**
  * @description func to play know sound effect
  * @param {SoundTypes} type
- * @param {boolean} loop
  */
-const playSound = (type: SoundTypes, loop?: boolean) => {
+const playSound = (type: SoundTypes) => {
   const file = soundAdapter(type)
   if (file) {
-    soundPlayer(file, loop)
+    soundPlayer(file)
   } else {
-    // TODO add error toast here
-    console.log("Can't play sound effect")
+    errorToast('Не могу воспроизвести 😔')
   }
+}
+
+/**
+ * @description func to get sound instance
+ * @param type
+ */
+const getSound = (type: SoundTypes): Sound => {
+  const file = soundAdapter(type)
+  Sound.setCategory('Playback')
+  const sound = new Sound(file, () => {
+    sound.setVolume(0.3)
+  })
+
+  return sound
 }
 
 /**
@@ -28,18 +40,13 @@ const soundAdapter = (type: SoundTypes) => {
 /**
  * @description sound player
  * @param {unknown} file
- * @param {boolean} loop
  */
-const soundPlayer = (file: unknown, loop?: boolean) => {
+const soundPlayer = (file: unknown) => {
   Sound.setCategory('Playback')
   const sound = new Sound(file, () => {
     sound.setVolume(0.3)
-    sound.play((_) => {
-      if (loop) {
-        soundPlayer(file, loop)
-      }
-    })
+    sound.play()
   })
 }
 
-export { playSound }
+export { playSound, getSound }

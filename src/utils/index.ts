@@ -16,7 +16,8 @@ import {
   IStatusBarThemes,
   getThemeStatusBar,
 } from './Theme'
-import { playSound, SoundTypes, SoundList } from './Sound'
+import { playSound, SoundTypes, SoundList, getSound } from './Sound'
+import { errorToast, successToast } from './Toast'
 
 export {
   width,
@@ -31,6 +32,9 @@ export {
   playSound,
   SoundTypes,
   SoundList,
+  errorToast,
+  successToast,
+  getSound,
 }
 
 export type {

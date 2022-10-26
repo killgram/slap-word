@@ -11,6 +11,7 @@ export enum Colors {
   TROLL_SLAYER_ORANGE = '#f5a34c',
   ARAGON_GREEN = '#4eb787',
   LUXE_LILAC = '#a8a4b0',
+  CATERPILLAR_GREEN = '#186d4a',
 }
 
 export enum LightColors {
@@ -38,4 +39,7 @@ export enum LightColors {
   // modals
   MODAL_BACKGROUND = Colors.OCEAN_STORM,
   MODAL_CONTAINER_BACKGROUND = Colors.LUXE_LILAC,
+  // toasts
+  SUCCESS_BACKGROUND_TOAST = Colors.CATERPILLAR_GREEN,
+  ERROR_BACKGROUND_TOAST = Colors.SUNSET_RIDERS,
 }

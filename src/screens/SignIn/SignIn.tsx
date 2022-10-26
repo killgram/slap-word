@@ -4,7 +4,6 @@ import getStyle from './SignInStyles'
 import { SWButton, SWContainer, SWText } from '@ui-kit/components'
 import { Navigate } from '@navigators'
 import { Domains } from '@configurations'
-import { playSound, SoundTypes } from '@utils'
 
 /**
  * @description SignInScreen
@@ -33,25 +32,6 @@ const SignInScreen = (props: ISignInScreenTypesProps) => {
         {process.env.NODE_ENV}
       </SWText>
       <SWButton title="to sign up" onPress={Navigate.toSignUpScreen} />
-      <SWButton
-        title="barking"
-        onPress={() => {
-          playSound(SoundTypes.WRONG_WORD)
-        }}
-      />
-      <SWButton
-        title="soundtrack"
-        onPress={() => {
-          playSound(SoundTypes.SOUNDTRACK, true)
-        }}
-      />
-      <SWButton
-        isSecondary
-        title="error"
-        onPress={() => {
-          playSound('error sound')
-        }}
-      />
     </SWContainer>
   )
 }
