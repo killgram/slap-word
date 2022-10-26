@@ -1,8 +1,7 @@
 import React, { useLayoutEffect } from 'react'
-import { Text } from 'react-native'
 import { ISignUpScreenTypesProps } from './SignUpTypes'
 import getStyle from './SignUpStyles'
-import { SWContainer } from '@ui-kit/components'
+import { SWButton, SWContainer, SWInput, SWText } from '@ui-kit/components'
 
 /**
  * @description SignUpScreen
@@ -20,8 +19,14 @@ const SignUpScreen = (props: ISignUpScreenTypesProps) => {
   }, [])
 
   return (
-    <SWContainer isTransparentHeader>
-      <Text>SignUpScreen</Text>
+    <SWContainer isTransparentHeader style={styles.container}>
+      <SWText isTitle>Введите логин:</SWText>
+      <SWInput SWContainerStyle={styles.inputs} />
+
+      <SWText isTitle>Введите пароль:</SWText>
+      <SWInput SWContainerStyle={styles.inputs} secureTextEntry={true} />
+
+      <SWButton title="Зарегистрироваться" />
     </SWContainer>
   )
 }

@@ -1,8 +1,9 @@
 import { StyleSheet } from 'react-native'
-import { RNStyleType } from '@utils'
+import { height, RNStyleType } from '@utils'
 
 interface IStyles {
   container: RNStyleType
+  inputs: RNStyleType
 }
 
 /**
@@ -10,6 +11,12 @@ interface IStyles {
  */
 export default function getStyle(): IStyles {
   return StyleSheet.create({
-    container: {},
+    container: {
+      flex: 0.88,
+      justifyContent: 'center',
+    },
+    inputs: {
+      marginTop: height(12),
+    },
   })
 }
