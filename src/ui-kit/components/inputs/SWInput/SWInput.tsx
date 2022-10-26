@@ -21,14 +21,14 @@ const SWInput = (props: ISWInputProps) => {
     errorStyle,
     labelStyle,
     label,
-    WDRContainerStyle,
+    SWContainerStyle,
     rightElement,
     ...other
   } = props
   const styles = getStyle()
 
   return (
-    <View style={WDRContainerStyle && WDRContainerStyle}>
+    <View style={SWContainerStyle && SWContainerStyle}>
       {!!label && (
         <SWText
           isSecondary

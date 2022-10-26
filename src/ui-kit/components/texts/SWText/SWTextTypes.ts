@@ -11,4 +11,5 @@ export interface ISWTextProps extends TextProps {
   size?: number
   color?: ColorValue
   other?: TextProps
+  inTheCenter?: boolean
 }

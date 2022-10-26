@@ -22,7 +22,7 @@ const getSound = (type: SoundTypes): Sound => {
   const file = soundAdapter(type)
   Sound.setCategory('Playback')
   const sound = new Sound(file, () => {
-    sound.setVolume(0.3)
+    sound.setVolume(0.1)
   })
 
   return sound
@@ -44,7 +44,7 @@ const soundAdapter = (type: SoundTypes) => {
 const soundPlayer = (file: unknown) => {
   Sound.setCategory('Playback')
   const sound = new Sound(file, () => {
-    sound.setVolume(0.3)
+    sound.setVolume(0.1)
     sound.play()
   })
 }

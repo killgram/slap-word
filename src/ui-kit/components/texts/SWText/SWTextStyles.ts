@@ -9,6 +9,7 @@ interface IStyles {
   secondary: RNStyleType
   link: RNStyleType
   error: RNStyleType
+  inTheCenter: RNStyleType
 }
 
 /**
@@ -35,6 +36,9 @@ export default function getStyle(): IStyles {
       color: getThemeColor('ERROR_TEXT'),
       fontSize: sp(12),
       lineHeight: sp(20),
+    },
+    inTheCenter: {
+      textAlign: 'center',
     },
   })
 }

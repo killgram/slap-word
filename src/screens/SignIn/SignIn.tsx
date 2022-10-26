@@ -1,9 +1,8 @@
 import React, { useLayoutEffect } from 'react'
 import { ISignInScreenTypesProps } from './SignInTypes'
 import getStyle from './SignInStyles'
-import { SWButton, SWContainer, SWText } from '@ui-kit/components'
+import { SWButton, SWContainer, SWInput, SWText } from '@ui-kit/components'
 import { Navigate } from '@navigators'
-import { Domains } from '@configurations'
 
 /**
  * @description SignInScreen
@@ -21,17 +20,22 @@ const SignInScreen = (props: ISignInScreenTypesProps) => {
   }, [])
 
   return (
-    <SWContainer>
-      <SWText isTitle size={24}>
-        {Domains.getR3D3InfoDomain()}
-      </SWText>
-      <SWText isSecondary size={24}>
-        {Domains.getDomain()}
-      </SWText>
-      <SWText isLink size={24}>
-        {process.env.NODE_ENV}
-      </SWText>
-      <SWButton title="to sign up" onPress={Navigate.toSignUpScreen} />
+    <SWContainer style={styles.container}>
+      <SWText isTitle>Логин</SWText>
+
+      <SWInput SWContainerStyle={styles.inputs} />
+
+      <SWText isTitle>Пароль</SWText>
+
+      <SWInput SWContainerStyle={styles.inputs} />
+
+      <SWButton title="Войти" />
+
+      <SWButton
+        title="Регистрация"
+        isTransparent
+        onPress={Navigate.toSignUpScreen}
+      />
     </SWContainer>
   )
 }

@@ -19,6 +19,7 @@ const SWText = (props: ISWTextProps) => {
     style,
     size,
     color,
+    inTheCenter,
     ...other
   } = props
   const styles = getStyle()
@@ -33,6 +34,7 @@ const SWText = (props: ISWTextProps) => {
         isLink && styles.link,
         size ? { fontSize: sp(size) } : {},
         color ? { color: color } : {},
+        inTheCenter && styles.inTheCenter,
         style,
       ])}
       {...other}

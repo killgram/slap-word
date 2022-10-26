@@ -16,7 +16,7 @@ export interface ISWInputProps extends TextInputProps {
   errorStyle?: RNStyleType
   label?: string
   labelStyle?: RNStyleType
-  WDRContainerStyle?: RNStyleType
+  SWContainerStyle?: RNStyleType
   rightElement?: React.ReactNode
   children?: React.ReactChild
 }
