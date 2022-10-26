@@ -4,10 +4,7 @@ export interface IInitialState {
   isAuthorized?: boolean
   isLoading?: boolean
   error?: string
-  username?: string
-  userId?: string
-  version?: string
-  updateModal?: boolean
+  apiIsReady?: boolean
 }
 
 export interface IStartup {

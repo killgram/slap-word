@@ -16,6 +16,12 @@ const appReducer = (
     case app.ActionTypes.CLEAN_APP: {
       return {}
     }
+    case app.ActionTypes.STARTUP: {
+      return {
+        ...state,
+        apiIsReady: false,
+      }
+    }
 
     default: {
       return state

@@ -1,12 +1,16 @@
 import React from 'react'
 import { DarkTheme, NavigationContainer, Theme } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
+import {
+  CardStyleInterpolators,
+  createStackNavigator,
+} from '@react-navigation/stack'
 import { AppNavigatorPropsTypes } from '@navigators/NavigatorTypes'
 import { getThemeColor } from '@utils'
 
 const Stack = createStackNavigator()
 
 import AuthStack from '@navigators/AuthStack'
+import AwaitScreen from '@screens/Await'
 
 /**
  * @description - The basic navigation "wrapper" of the application
@@ -46,9 +50,11 @@ const AppNavigator = (props: AppNavigatorPropsTypes) => {
         screenOptions={{
           headerShown: false,
           gestureEnabled: false,
+          cardStyleInterpolator: CardStyleInterpolators.forFadeFromCenter,
         }}
         initialRouteName="AwaitScreen"
       >
+        <Stack.Screen name="AwaitScreen" component={AwaitScreen} />
         <Stack.Screen name="AuthStack" component={AuthStack} />
       </Stack.Navigator>
     </NavigationContainer>
