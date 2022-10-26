@@ -19,3 +19,13 @@ export function cleanApp(): app.IAction {
     type: app.ActionTypes.CLEAN_APP,
   }
 }
+
+/**
+ *
+ * @return {app.IAction}
+ */
+export function serverIsReady(): app.IAction {
+  return {
+    type: app.ActionTypes.SERVER_IS_READY,
+  }
+}

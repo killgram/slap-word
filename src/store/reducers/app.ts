@@ -16,10 +16,10 @@ const appReducer = (
     case app.ActionTypes.CLEAN_APP: {
       return {}
     }
-    case app.ActionTypes.STARTUP: {
+    case app.ActionTypes.SERVER_IS_READY: {
       return {
         ...state,
-        apiIsReady: false,
+        serverIsReady: true,
       }
     }
 

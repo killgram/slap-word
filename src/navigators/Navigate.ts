@@ -9,6 +9,13 @@ export const toAuthStack = () => {
   NavigationService.navigateAndReset('AuthStack')
 }
 
+/**
+ * @description app stack
+ */
+export const toAppStack = () => {
+  NavigationService.navigateAndReset('AppStack')
+}
+
 //-------------------Auth-------------------//
 
 /**

@@ -29,7 +29,7 @@ const SignInScreen = (props: ISignInScreenTypesProps) => {
 
       <SWInput SWContainerStyle={styles.inputs} />
 
-      <SWButton title="Войти" />
+      <SWButton title="Войти" onPress={Navigate.toAppStack} />
 
       <SWButton
         title="Регистрация"

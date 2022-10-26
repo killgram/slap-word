@@ -9,8 +9,9 @@ import { getThemeColor } from '@utils'
 
 const Stack = createStackNavigator()
 
-import AuthStack from '@navigators/AuthStack'
 import AwaitScreen from '@screens/Await'
+import AuthStack from '@navigators/AuthStack'
+import AppStack from '@navigators/AppStack'
 
 /**
  * @description - The basic navigation "wrapper" of the application
@@ -56,6 +57,7 @@ const AppNavigator = (props: AppNavigatorPropsTypes) => {
       >
         <Stack.Screen name="AwaitScreen" component={AwaitScreen} />
         <Stack.Screen name="AuthStack" component={AuthStack} />
+        <Stack.Screen name="AppStack" component={AppStack} />
       </Stack.Navigator>
     </NavigationContainer>
   )
