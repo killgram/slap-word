@@ -1,0 +1,3 @@
+ENV=development
+R3D3INFODOMAIN=https:/$()/r3d3-info.onrender.com
+DOMAIN=https:/$()/slap-word.onrender.com

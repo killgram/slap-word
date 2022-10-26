@@ -1,8 +1,9 @@
 import { call, put, select, delay } from 'redux-saga/effects'
+import SplashScreen from 'react-native-splash-screen'
 
 /**
  * @description startup saga
  */
 export function* startup(): any {
-  console.log('saga is ready')
+  yield call(SplashScreen.hide)
 }

@@ -26,15 +26,11 @@ const SignInScreen = (props: ISignInScreenTypesProps) => {
         {Domains.getR3D3InfoDomain()}
       </SWText>
       <SWText isSecondary size={24}>
-        SignInScreen
-      </SWText>
-      <SWText isError size={24}>
-        SignInScreen
+        {Domains.getDomain()}
       </SWText>
       <SWText isLink size={24}>
-        SignInScreen
+        {process.env.NODE_ENV}
       </SWText>
-
       <SWButton title="to sign up" onPress={Navigate.toSignUpScreen} />
     </SWContainer>
   )
