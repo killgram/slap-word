@@ -3,6 +3,7 @@ import MainMenuScreen from './MainMenuScreen'
 import { connect } from 'react-redux'
 import { IState, IMainMenuScreenTypesProps } from './MainMenuScreenTypes'
 import { Dispatch } from 'redux'
+import { appAction } from '@store/actions'
 
 /**
  * @param {IState} state
@@ -14,8 +15,8 @@ const mapStateToProps = (state: IState): IMainMenuScreenTypesProps => ({})
  * @param {Dispatch<any>} dispatch
  * @return {IMainMenuScreenTypesProps}
  */
-const mapDispatchToProps = (
-  dispatch: Dispatch,
-): IMainMenuScreenTypesProps => ({})
+const mapDispatchToProps = (dispatch: Dispatch): IMainMenuScreenTypesProps => ({
+  logout: () => dispatch(appAction.logout()),
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainMenuScreen)

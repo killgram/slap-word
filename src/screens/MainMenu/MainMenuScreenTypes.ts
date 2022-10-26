@@ -7,6 +7,8 @@ interface IStateToProps {
 
 export interface IState {}
 
-interface IDispatchToProps {}
+interface IDispatchToProps {
+  logout?: () => app.IAction
+}
 
 export type IMainMenuScreenTypesProps = IDispatchToProps & IStateToProps

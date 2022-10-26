@@ -42,4 +42,6 @@ export enum LightColors {
   // toasts
   SUCCESS_BACKGROUND_TOAST = Colors.CATERPILLAR_GREEN,
   ERROR_BACKGROUND_TOAST = Colors.SUNSET_RIDERS,
+  // icons
+  SECURE_EYE_PASS_ICON = Colors.DEEP_FIR,
 }

@@ -1,7 +1,7 @@
 export { SWKeyShift, SWContainer } from './containers'
 export { SWText } from './texts'
 export { SWIcon } from './icons'
-export { SWButton } from './buttons'
+export { SWButton, SWIconButton } from './buttons'
 export { SWCombineItem } from './combineItems'
 export { SWInput } from './inputs'
 export { SWList } from './lists'

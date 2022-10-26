@@ -1,7 +1,7 @@
 import React, { useLayoutEffect } from 'react'
 import { IMainMenuScreenTypesProps } from './MainMenuScreenTypes'
 import getStyle from './MainMenuScreenStyles'
-import { SWContainer, SWText } from '@ui-kit/components'
+import { SWButton, SWContainer, SWText } from '@ui-kit/components'
 
 /**
  * @description MainMenuScreen
@@ -9,7 +9,7 @@ import { SWContainer, SWText } from '@ui-kit/components'
  * @return {JSX}
  */
 const MainMenuScreen = (props: IMainMenuScreenTypesProps) => {
-  const { navigation } = props
+  const { navigation, logout } = props
   const styles = getStyle()
 
   useLayoutEffect(() => {
@@ -18,9 +18,15 @@ const MainMenuScreen = (props: IMainMenuScreenTypesProps) => {
     })
   }, [])
 
+  const handleLogout = () => {
+    logout?.()
+  }
+
   return (
     <SWContainer style={styles.container}>
       <SWText>MainMenuScreen</SWText>
+
+      <SWButton title="Выйти" onPress={handleLogout} />
     </SWContainer>
   )
 }

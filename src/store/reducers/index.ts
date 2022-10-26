@@ -4,8 +4,13 @@ import { persistReducer } from 'redux-persist'
 
 import appReducer from './app'
 
+const appPersistConfig = {
+  key: 'app',
+  storage: AsyncStorage,
+}
+
 const rootReducer = combineReducers({
-  app: appReducer,
+  app: persistReducer(appPersistConfig, appReducer),
 })
 
 export default rootReducer

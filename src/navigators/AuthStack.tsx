@@ -21,6 +21,7 @@ const AuthStack = () => {
       screenOptions={{
         ...defaultHeaderStyle,
         cardStyleInterpolator: CardStyleInterpolators.forFadeFromCenter,
+        gestureEnabled: false,
       }}
     >
       <Stack.Screen name="SignInScreen" component={SignInScreen} />

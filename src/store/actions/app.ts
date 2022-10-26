@@ -29,3 +29,60 @@ export function serverIsReady(): app.IAction {
     type: app.ActionTypes.SERVER_IS_READY,
   }
 }
+
+/**
+ *
+ * @param {string} login
+ * @param {string} password
+ * @return {app.IAction}
+ */
+export function loginRequest(login: string, password: string): app.IAction {
+  return {
+    type: app.ActionTypes.LOGIN_REQUEST,
+    login,
+    password,
+  }
+}
+
+/**
+ *
+ * @return {app.IAction}
+ */
+export function loginError(): app.IAction {
+  return {
+    type: app.ActionTypes.LOGIN_ERROR,
+  }
+}
+
+/**
+ *
+ * @param {string} login
+ * @param {string} password
+ * @param {number} maxScore
+ * @param {string} accessToken
+ * @return {app.IAction}
+ */
+export function loginSuccess(
+  login: string,
+  password: string,
+  maxScore: number,
+  accessToken: string,
+): app.IAction {
+  return {
+    type: app.ActionTypes.LOGIN_SUCCESS,
+    login,
+    password,
+    maxScore,
+    accessToken,
+  }
+}
+
+/**
+ *
+ * @return {app.IAction}
+ */
+export function logout(): app.IAction {
+  return {
+    type: app.ActionTypes.LOGOUT,
+  }
+}
