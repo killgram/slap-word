@@ -16,6 +16,7 @@ import {
   IStatusBarThemes,
   getThemeStatusBar,
 } from './Theme'
+import { playSound, SoundTypes, SoundList } from './Sound'
 
 export {
   width,
@@ -27,6 +28,9 @@ export {
   getThemeColor,
   getThemeGradient,
   getThemeStatusBar,
+  playSound,
+  SoundTypes,
+  SoundList,
 }
 
 export type {
