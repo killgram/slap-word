@@ -51,6 +51,12 @@ const appReducer = (
         ...oldState,
       }
     }
+    case app.ActionTypes.SIGN_UP_REQUEST: {
+      return {
+        ...state,
+        isLoading: true,
+      }
+    }
 
     default: {
       return state

@@ -86,3 +86,17 @@ export function logout(): app.IAction {
     type: app.ActionTypes.LOGOUT,
   }
 }
+
+/**
+ *
+ * @param {string} login
+ * @param {string} password
+ * @return {app.IAction}
+ */
+export function signUpRequest(login: string, password: string): app.IAction {
+  return {
+    type: app.ActionTypes.SIGN_UP_REQUEST,
+    login,
+    password,
+  }
+}

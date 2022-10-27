@@ -46,6 +46,12 @@ export interface ILogout {
   type: ActionTypes.LOGOUT
 }
 
+export interface ISignUpRequest {
+  type: ActionTypes.SIGN_UP_REQUEST
+  login?: string
+  password?: string
+}
+
 export type IAction =
   | IStartup
   | ICleanApp
@@ -54,3 +60,4 @@ export type IAction =
   | ILoginSuccess
   | ILoginError
   | ILogout
+  | ISignUpRequest

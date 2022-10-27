@@ -68,18 +68,26 @@ const SignInScreen = (props: ISignInScreenTypesProps) => {
     login?.(inputLogin, inputPassword)
   }
 
+  /**
+   * @description navigate to sign up screen
+   */
+  const goToSignUp = () => {
+    Navigate.toSignUpScreen()
+    handleInputLogin('')
+    handleInputPassword('')
+    setIsSecurePass(true)
+    setIsLoginDisabled(true)
+  }
+
   return (
     <SWContainer style={styles.container}>
       <SWText isTitle>Логин</SWText>
-
       <SWInput
         SWContainerStyle={styles.inputs}
         value={inputLogin}
         onChangeText={handleInputLogin}
       />
-
       <SWText isTitle>Пароль</SWText>
-
       <SWInput
         SWContainerStyle={styles.inputs}
         value={inputPassword}
@@ -94,19 +102,13 @@ const SignInScreen = (props: ISignInScreenTypesProps) => {
           />
         }
       />
-
       <SWButton
         title="Войти"
         onPress={handleLogin}
         isDisabled={isLoginDisabled}
         isLoading={isLoading}
       />
-
-      <SWButton
-        title="Регистрация"
-        isTransparent
-        onPress={Navigate.toSignUpScreen}
-      />
+      <SWButton title="Регистрация" isTransparent onPress={goToSignUp} />
     </SWContainer>
   )
 }

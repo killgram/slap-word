@@ -1,4 +1,4 @@
 import { getServerWorkStatus } from './GetServerWorkStatus'
-import { loginService } from './AuthService'
+import { loginService, signUpService } from './AuthService'
 
-export { getServerWorkStatus, loginService }
+export { getServerWorkStatus, loginService, signUpService }
