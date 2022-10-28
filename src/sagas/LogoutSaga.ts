@@ -1,5 +1,5 @@
 import { call, put } from 'redux-saga/effects'
-import { appAction } from '@store/actions'
+import { appAction, settingsAction } from '@store/actions'
 import { Navigate } from '@navigators'
 
 /**
@@ -7,6 +7,7 @@ import { Navigate } from '@navigators'
  */
 export function* logout(): any {
   yield put(appAction.cleanApp())
+  yield put(settingsAction.cleanSettings())
 
   yield call(Navigate.toAuthStack)
 }

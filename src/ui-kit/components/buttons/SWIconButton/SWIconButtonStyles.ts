@@ -13,7 +13,6 @@ interface IStyles {
 export default function getStyle(): IStyles {
   return StyleSheet.create({
     container: {
-      flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
       padding: height(8),

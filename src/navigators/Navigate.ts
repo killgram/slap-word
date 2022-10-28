@@ -35,3 +35,14 @@ export const toSignUpScreen = () => {
     screen: 'SignUpScreen',
   })
 }
+
+//-------------------App--------------------//
+
+/**
+ * @description to RulesScreen
+ */
+export const toRulesScreen = () => {
+  NavigationService.navigate('AppStack', {
+    screen: 'RulesScreen',
+  })
+}

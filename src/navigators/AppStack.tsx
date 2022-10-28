@@ -8,6 +8,7 @@ import { defaultHeaderStyle } from '@ui-kit/styles'
 const Stack = createStackNavigator()
 
 import MainMenuScreen from '@screens/MainMenu'
+import RulesScreen from '@screens/Rules'
 
 /**
  * @description app stack
@@ -23,6 +24,7 @@ const AppStack = () => {
       }}
     >
       <Stack.Screen name="MainMenuScreen" component={MainMenuScreen} />
+      <Stack.Screen name="RulesScreen" component={RulesScreen} />
     </Stack.Navigator>
   )
 }
