@@ -9,6 +9,10 @@ const Stack = createStackNavigator()
 
 import MainMenuScreen from '@screens/MainMenu'
 import RulesScreen from '@screens/Rules'
+import AboutAppScreen from '@screens/AboutApp'
+import SupportScreen from '@screens/Support'
+import TopScoreScreen from '@screens/TopScore'
+import GameChooseScreen from '@screens/GameChoose'
 
 /**
  * @description app stack
@@ -25,6 +29,10 @@ const AppStack = () => {
     >
       <Stack.Screen name="MainMenuScreen" component={MainMenuScreen} />
       <Stack.Screen name="RulesScreen" component={RulesScreen} />
+      <Stack.Screen name="AboutAppScreen" component={AboutAppScreen} />
+      <Stack.Screen name="SupportScreen" component={SupportScreen} />
+      <Stack.Screen name="TopScoreScreen" component={TopScoreScreen} />
+      <Stack.Screen name="GameChooseScreen" component={GameChooseScreen} />
     </Stack.Navigator>
   )
 }
