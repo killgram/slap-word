@@ -22,6 +22,7 @@ import { getAccessTokenConfig } from './GetAccessTokenConfig'
 import { copyToClipboard, getDataToBuffer } from './Clipboard'
 import { keyGenerate } from './KeyGenerate'
 import { openLink } from './OpenLink'
+import { gamePossibility } from './GamePossibility'
 
 export {
   width,
@@ -44,6 +45,7 @@ export {
   getDataToBuffer,
   keyGenerate,
   openLink,
+  gamePossibility,
 }
 
 export type {

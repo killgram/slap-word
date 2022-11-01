@@ -13,6 +13,9 @@ import AboutAppScreen from '@screens/AboutApp'
 import SupportScreen from '@screens/Support'
 import TopScoreScreen from '@screens/TopScore'
 import GameChooseScreen from '@screens/GameChoose'
+import WordOfTheDayScreen from '@screens/WordOfTheDay'
+import ChooseDifficultScreen from '@screens/ChooseDifficult'
+import TournamentScreen from '@screens/Tournament'
 
 /**
  * @description app stack
@@ -33,6 +36,12 @@ const AppStack = () => {
       <Stack.Screen name="SupportScreen" component={SupportScreen} />
       <Stack.Screen name="TopScoreScreen" component={TopScoreScreen} />
       <Stack.Screen name="GameChooseScreen" component={GameChooseScreen} />
+      <Stack.Screen name="WordOfTheDayScreen" component={WordOfTheDayScreen} />
+      <Stack.Screen
+        name="ChooseDifficultScreen"
+        component={ChooseDifficultScreen}
+      />
+      <Stack.Screen name="TournamentScreen" component={TournamentScreen} />
     </Stack.Navigator>
   )
 }

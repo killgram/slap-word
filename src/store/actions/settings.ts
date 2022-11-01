@@ -20,3 +20,12 @@ export function cleanSettings(): settings.IAction {
     type: settings.ActionTypes.CLEAN_SETTING,
   }
 }
+
+/**
+ * @return {settings.IAction}
+ */
+export function updateWordOfDayLastTime(): settings.IAction {
+  return {
+    type: settings.ActionTypes.UPDATE_WORD_OF_DAY_LAST_TIME,
+  }
+}

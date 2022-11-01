@@ -22,6 +22,12 @@ const settingsReducer = (
         isPlaySound: action.isPlaySound,
       }
     }
+    case settings.ActionTypes.UPDATE_WORD_OF_DAY_LAST_TIME: {
+      return {
+        ...state,
+        wordOfDayTime: Date.now(),
+      }
+    }
 
     default: {
       return state

@@ -8,14 +8,8 @@ import { Dispatch } from 'redux'
  * @param {IState} state
  * @return {IGameChooseScreenTypesProps}
  */
-const mapStateToProps = (state: IState): IGameChooseScreenTypesProps => ({})
+const mapStateToProps = (state: IState): IGameChooseScreenTypesProps => ({
+  wordOfDayTime: state?.settings?.wordOfDayTime,
+})
 
-/**
- * @param {Dispatch<any>} dispatch
- * @return {IGameChooseScreenTypesProps}
- */
-const mapDispatchToProps = (
-  dispatch: Dispatch,
-): IGameChooseScreenTypesProps => ({})
-
-export default connect(mapStateToProps, mapDispatchToProps)(GameChooseScreen)
+export default connect(mapStateToProps)(GameChooseScreen)

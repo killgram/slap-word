@@ -16,7 +16,7 @@ const appPersistConfig = {
 const settingsPersistConfig = {
   key: 'settings',
   storage: AsyncStorage,
-  whitelist: ['isPlaySound'],
+  whitelist: ['isPlaySound', 'wordOfDayTime'],
 }
 
 const rootReducer = combineReducers({

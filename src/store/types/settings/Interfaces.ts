@@ -2,6 +2,7 @@ import { ActionTypes } from './ActionTypes'
 
 export interface IInitialState {
   isPlaySound?: boolean
+  wordOfDayTime?: number
 }
 
 export interface ICleanSetting {
@@ -13,4 +14,11 @@ export interface ISetSoundtrackStatus {
   isPlaySound?: boolean
 }
 
-export type IAction = ICleanSetting | ISetSoundtrackStatus
+export interface IUpdateWordOfDayLastTime {
+  type: ActionTypes.UPDATE_WORD_OF_DAY_LAST_TIME
+}
+
+export type IAction =
+  | ICleanSetting
+  | ISetSoundtrackStatus
+  | IUpdateWordOfDayLastTime

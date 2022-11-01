@@ -1,11 +1,13 @@
+import { settings } from '@store/types'
 import { NavigationType } from '@navigators'
 
 interface IStateToProps {
   navigation?: NavigationType
+  wordOfDayTime?: number
 }
 
-export interface IState {}
+export interface IState {
+  settings?: settings.IInitialState
+}
 
-interface IDispatchToProps {}
-
-export type IGameChooseScreenTypesProps = IDispatchToProps & IStateToProps
+export type IGameChooseScreenTypesProps = IStateToProps

@@ -82,3 +82,30 @@ export const toGameChooseScreen = () => {
     screen: 'GameChooseScreen',
   })
 }
+
+/**
+ * @description to WordOfTheDayScreen
+ */
+export const toWordOfTheDayScreen = () => {
+  NavigationService.navigate('AppStack', {
+    screen: 'WordOfTheDayScreen',
+  })
+}
+
+/**
+ * @description to ChooseDifficultScreen
+ */
+export const toChooseDifficultScreen = () => {
+  NavigationService.navigate('AppStack', {
+    screen: 'ChooseDifficultScreen',
+  })
+}
+
+/**
+ * @description to TournamentScreen
+ */
+export const toTournamentScreen = () => {
+  NavigationService.navigate('AppStack', {
+    screen: 'TournamentScreen',
+  })
+}
