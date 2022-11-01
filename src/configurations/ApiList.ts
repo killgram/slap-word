@@ -13,3 +13,6 @@ export enum ApiList {
   UPDATE_SCORE = '/updateScore',
   WRONG_WORD = '/wrongWord',
 }
+export enum R3D3ApiList {
+  STATUS = '/getSupportInfo',
+}

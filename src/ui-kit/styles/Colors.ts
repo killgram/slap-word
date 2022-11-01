@@ -44,4 +44,7 @@ export enum LightColors {
   // icons
   SECURE_EYE_PASS_ICON = Colors.DEEP_FIR,
   EXIT_ICON = Colors.CATERPILLAR_GREEN,
+  // items
+  BACKGROUND_ITEMS = Colors.OCEAN_STORM,
+  TITLE_ITEMS = Colors.TROLL_SLAYER_ORANGE,
 }
