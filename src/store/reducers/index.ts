@@ -5,6 +5,7 @@ import { persistReducer } from 'redux-persist'
 import appReducer from './app'
 import settingsReducer from './settings'
 import supportReducer from './support'
+import aboutAppReducer from './aboutApp'
 
 const appPersistConfig = {
   key: 'app',
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   app: persistReducer(appPersistConfig, appReducer),
   settings: persistReducer(settingsPersistConfig, settingsReducer),
   support: supportReducer,
+  aboutApp: aboutAppReducer,
 })
 
 export default rootReducer

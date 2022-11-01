@@ -1,6 +1,5 @@
 import { call, put, select } from 'redux-saga/effects'
 import { supportAction } from '@store/actions'
-
 import { dbSupportInfoData, getSupportService } from '@services'
 import { errorToast } from '@utils'
 

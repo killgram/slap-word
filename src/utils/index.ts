@@ -21,6 +21,7 @@ import { errorToast, successToast } from './Toast'
 import { getAccessTokenConfig } from './GetAccessTokenConfig'
 import { copyToClipboard, getDataToBuffer } from './Clipboard'
 import { keyGenerate } from './KeyGenerate'
+import { openLink } from './OpenLink'
 
 export {
   width,
@@ -42,6 +43,7 @@ export {
   copyToClipboard,
   getDataToBuffer,
   keyGenerate,
+  openLink,
 }
 
 export type {

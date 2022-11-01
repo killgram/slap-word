@@ -16,7 +16,9 @@ const SupportItem = (props: ISupportItemProps) => {
   return (
     <SWCombineItem
       bodyElement={
-        <SWText color={getThemeColor('TITLE_ITEMS')}>{bodyTitle}</SWText>
+        <SWText isTitle color={getThemeColor('TITLE_ITEMS')}>
+          {bodyTitle}
+        </SWText>
       }
       noPadding
       rightElement={
