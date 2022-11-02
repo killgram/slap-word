@@ -19,6 +19,7 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
     keyboardWords,
     isLoading,
     hitWord = '',
+    checkWordRequest,
   } = props
   const styles = getStyle()
   const [inputWord, setInputWord] = useState('')
@@ -53,7 +54,7 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
    * @description check word
    */
   const handlePressWord = () => {
-    console.log('handleCheckWord')
+    checkWordRequest?.(inputWord)
   }
 
   return isLoading ? (

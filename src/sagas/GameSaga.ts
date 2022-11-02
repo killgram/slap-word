@@ -1,7 +1,8 @@
 import { call, put, select } from 'redux-saga/effects'
 import { gameAction } from '@store/actions'
-import { getWordOfDayService } from '@services'
+import { checkWordService, getWordOfDayService } from '@services'
 import { errorToast, generateKeyboardConfig } from '@utils'
+import { ICheckWordRequest } from '@store/types/game/Interfaces'
 
 /**
  * @description get word of the day saga
@@ -26,6 +27,26 @@ export function* setKeyboard(): any {
   try {
     const config = generateKeyboardConfig()
     yield put(gameAction.setKeyboard(config))
+  } catch (e) {
+    yield call(errorToast, 'Что-то пошло не так 😔')
+  }
+}
+
+/**
+ * @description check word saga
+ */
+export function* checkWordRequest(action: ICheckWordRequest): any {
+  const { word } = action
+  const state = yield select()
+  const accessToken = state?.app?.accessToken
+
+  try {
+    const data = yield call(checkWordService, accessToken, word!)
+    if (data.data) {
+      yield put(gameAction.onCheckWordSuccess(true))
+    } else {
+      yield put(gameAction.onCheckWordSuccess(false))
+    }
   } catch (e) {
     yield call(errorToast, 'Что-то пошло не так 😔')
   }

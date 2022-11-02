@@ -16,6 +16,7 @@ export interface IState {
 interface IDispatchToProps {
   updateWordOfDayLastTime?: () => settings.IAction
   getWordOfTheDay?: () => game.IAction
+  checkWordRequest?: (word: string) => game.IAction
 }
 
 export type IWordOfTheDayTypesProps = IDispatchToProps & IStateToProps

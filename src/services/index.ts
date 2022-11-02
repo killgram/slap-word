@@ -4,6 +4,7 @@ import { getSupportService, dbSupportInfoData } from './GetSupportService'
 import { getAboutAppService } from './GetAboutAppService'
 import { getTopScoreService } from './GetTopScoreService'
 import { getWordOfDayService } from './GetWordOfDayService'
+import { checkWordService } from './CheckWordService'
 
 export {
   getServerWorkStatus,
@@ -14,4 +15,5 @@ export {
   getAboutAppService,
   getTopScoreService,
   getWordOfDayService,
+  checkWordService,
 }

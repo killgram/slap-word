@@ -41,3 +41,25 @@ export function setKeyboard(keyboardWords: IKeyboardLine): game.IAction {
     keyboardWords,
   }
 }
+
+/**
+ * @param {string} word
+ * @return {game.IAction}
+ */
+export function checkWordRequest(word: string): game.IAction {
+  return {
+    type: game.ActionTypes.CHECK_WORD_REQUEST,
+    word,
+  }
+}
+
+/**
+ * @param {boolean} isHit
+ * @return {game.IAction}
+ */
+export function onCheckWordSuccess(isHit: boolean): game.IAction {
+  return {
+    type: game.ActionTypes.ON_CHECK_WORD_SUCCESS,
+    isHit,
+  }
+}

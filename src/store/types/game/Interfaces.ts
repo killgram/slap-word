@@ -17,6 +17,8 @@ export interface IInitialState {
   isLoading?: boolean
   word?: string
   keyboardWords?: IKeyboardLine
+  isCheckLoading?: boolean
+  isHit?: boolean
 }
 
 export interface ICleanGame {
@@ -37,8 +39,20 @@ export interface ISetKeyboard {
   keyboardWords?: IKeyboardLine
 }
 
+export interface ICheckWordRequest {
+  type: ActionTypes.CHECK_WORD_REQUEST
+  word?: string
+}
+
+export interface IOnCheckWordSuccess {
+  type: ActionTypes.ON_CHECK_WORD_SUCCESS
+  isHit?: boolean
+}
+
 export type IAction =
   | ICleanGame
   | IGetWordOfTheDay
   | IOnWordOfTheDaySuccess
   | ISetKeyboard
+  | ICheckWordRequest
+  | IOnCheckWordSuccess

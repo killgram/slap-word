@@ -1,23 +1,23 @@
 import axios from 'axios'
-import { ApiList, Domains, Constants } from '@configurations'
+import { ApiList, Constants, Domains } from '@configurations'
 import { getAccessTokenConfig, getQueryParamsConfig } from '@utils'
 
 /**
- * @description get word of the day
+ * @description check word service
  * @param {string} token
+ * @param {string} word
  */
-const getWordOfDayService = (token: string) => {
-  const url = `${Domains.getDomain()}${ApiList.GET_WORD_OF_THE_DAY}`
+const checkWordService = (token: string, word: string) => {
+  const url = `${Domains.getDomain()}${ApiList.CHECK_WORD}`
   const params = {
     language: Constants.APP_DEFAULT_LANG,
+    word: word,
   }
-
   const config = {
     ...getQueryParamsConfig(params),
     ...getAccessTokenConfig(token),
   }
-
   return axios.get(url, config)
 }
 
-export { getWordOfDayService }
+export { checkWordService }

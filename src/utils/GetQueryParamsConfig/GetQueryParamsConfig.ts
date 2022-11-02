@@ -1,13 +1,9 @@
 /**
  * @description calc params config for services
  */
-import { Constants } from '@configurations'
-
-const getQueryParamsConfig = () => {
+const getQueryParamsConfig = (params: Object) => {
   return {
-    params: {
-      language: Constants.APP_DEFAULT_LANG,
-    },
+    params: params,
   }
 }
 

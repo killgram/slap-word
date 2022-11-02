@@ -23,6 +23,8 @@ const mapDispatchToProps = (dispatch: Dispatch): IWordOfTheDayTypesProps => ({
   updateWordOfDayLastTime: () =>
     dispatch(settingsAction.updateWordOfDayLastTime()),
   getWordOfTheDay: () => dispatch(gameAction.getWordOfTheDay()),
+  checkWordRequest: (word: string) =>
+    dispatch(gameAction.checkWordRequest(word)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(WordOfTheDayScreen)

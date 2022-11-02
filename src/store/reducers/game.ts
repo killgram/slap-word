@@ -37,6 +37,21 @@ const gameReducer = (
         keyboardWords: action.keyboardWords,
       }
     }
+    // check word
+    case game.ActionTypes.CHECK_WORD_REQUEST: {
+      return {
+        ...state,
+        isCheckLoading: true,
+      }
+    }
+    case game.ActionTypes.ON_CHECK_WORD_SUCCESS: {
+      const oldState = { ...state }
+      delete oldState.isCheckLoading
+      return {
+        ...oldState,
+        isHit: action.isHit,
+      }
+    }
 
     default: {
       return state
