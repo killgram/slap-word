@@ -11,6 +11,10 @@ export enum Colors {
   SNOW_BALLET = '#def1e6',
   DEEP_FIR = '#163727',
   SPEARMINTS = '#bce3cd',
+  ANGEL_HAIR_SILVER = '#d3d6da',
+  VEGAS_GOLD = '#c9b458',
+  TARNISHED_SILVER = '#787c7e',
+  FERNTASTIC = '#6aaa64',
 }
 
 export enum LightColors {
@@ -47,4 +51,9 @@ export enum LightColors {
   // items
   BACKGROUND_ITEMS = Colors.OCEAN_STORM,
   TITLE_ITEMS = Colors.TROLL_SLAYER_ORANGE,
+  // keyboard
+  BACKGROUND_KEYBOARD = Colors.ANGEL_HAIR_SILVER,
+  COINCIDENCE_BACKGROUND_KEYBOARD = Colors.VEGAS_GOLD,
+  MISSING_BACKGROUND_KEYBOARD = Colors.TARNISHED_SILVER,
+  RIGHT_TARGET_BACKGROUND_KEYBOARD = Colors.FERNTASTIC,
 }

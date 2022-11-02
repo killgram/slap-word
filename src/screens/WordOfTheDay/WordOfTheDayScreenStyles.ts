@@ -1,10 +1,34 @@
 import { StyleSheet } from 'react-native'
+import { height, RNStyleType } from '@utils'
 
-interface IStyles {}
+interface IStyles {
+  sectionTop: RNStyleType
+  sectionBottom: RNStyleType
+  indicatorContainer: RNStyleType
+  indicatorTitle: RNStyleType
+}
 
 /**
  * @return {IStyles}
  */
 export default function getStyle(): IStyles {
-  return StyleSheet.create({})
+  return StyleSheet.create({
+    sectionTop: {
+      // backgroundColor: 'purple',
+      flex: 0.75,
+    },
+    sectionBottom: {
+      // backgroundColor: 'pink',
+      flex: 0.25,
+      marginBottom: height(30),
+    },
+    indicatorContainer: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    indicatorTitle: {
+      marginBottom: height(16),
+    },
+  })
 }

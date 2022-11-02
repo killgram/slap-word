@@ -7,6 +7,7 @@ import settingsReducer from './settings'
 import supportReducer from './support'
 import aboutAppReducer from './aboutApp'
 import topScoreReducer from './topScore'
+import gameReducer from './game'
 
 const appPersistConfig = {
   key: 'app',
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
   support: supportReducer,
   aboutApp: aboutAppReducer,
   topScore: topScoreReducer,
+  game: gameReducer,
 })
 
 export default rootReducer

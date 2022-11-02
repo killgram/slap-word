@@ -3,6 +3,7 @@ import * as settingsAction from './settings'
 import * as supportAction from './support'
 import * as aboutAppAction from './aboutApp'
 import * as topScoreAction from './topScore'
+import * as gameAction from './game'
 
 export {
   appAction,
@@ -10,4 +11,5 @@ export {
   supportAction,
   aboutAppAction,
   topScoreAction,
+  gameAction,
 }

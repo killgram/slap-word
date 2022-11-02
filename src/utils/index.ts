@@ -23,6 +23,8 @@ import { copyToClipboard, getDataToBuffer } from './Clipboard'
 import { keyGenerate } from './KeyGenerate'
 import { openLink } from './OpenLink'
 import { gamePossibility } from './GamePossibility'
+import { getQueryParamsConfig } from './GetQueryParamsConfig'
+import { generateKeyboardConfig } from './KeyboardUtils'
 
 export {
   width,
@@ -46,6 +48,8 @@ export {
   keyGenerate,
   openLink,
   gamePossibility,
+  getQueryParamsConfig,
+  generateKeyboardConfig,
 }
 
 export type {

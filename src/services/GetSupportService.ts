@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ApiList, Domains } from '@configurations'
+import { ApiList, Domains, R3D3ApiList } from '@configurations'
 import { getAccessTokenConfig } from '@utils'
 
 /**
@@ -16,7 +16,7 @@ const getSupportService = (token: string) => {
  * @description get support data in R3D3-info service
  */
 const dbSupportInfoData = async () => {
-  const url = `${Domains.getR3D3InfoDomain()}/getSupportInfo`
+  const url = `${Domains.getR3D3InfoDomain()}${R3D3ApiList.STATUS}`
   return axios.get(url)
 }
 

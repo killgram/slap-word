@@ -3,6 +3,7 @@ import { loginService, signUpService } from './AuthService'
 import { getSupportService, dbSupportInfoData } from './GetSupportService'
 import { getAboutAppService } from './GetAboutAppService'
 import { getTopScoreService } from './GetTopScoreService'
+import { getWordOfDayService } from './GetWordOfDayService'
 
 export {
   getServerWorkStatus,
@@ -12,4 +13,5 @@ export {
   dbSupportInfoData,
   getAboutAppService,
   getTopScoreService,
+  getWordOfDayService,
 }
