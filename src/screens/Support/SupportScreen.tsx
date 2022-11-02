@@ -3,7 +3,7 @@ import { ISupportScreenTypesProps } from './SupportScreenTypes'
 import getStyle from './SupportScreenStyles'
 import { SWContainer, SWText } from '@ui-kit/components'
 import { SupportItem } from '@components'
-import { ActivityIndicator, View } from 'react-native'
+import { ActivityIndicator, ScrollView, View } from 'react-native'
 import {
   copyToClipboard,
   getThemeColor,
@@ -56,7 +56,7 @@ const SupportScreen = (props: ISupportScreenTypesProps) => {
   }
 
   return (
-    <SWContainer isTransparentHeader>
+    <SWContainer isTransparentHeader isKeyBoardDismiss={false}>
       <SWText inTheCenter isTitle>
         Если вы обнаружили ошибку или хотите предложить идею по улучшению
         приложения, вы можете написать мне на email
@@ -75,12 +75,14 @@ const SupportScreen = (props: ISupportScreenTypesProps) => {
       </View>
 
       {!isHelpLoading ? (
-        <View style={styles.itemContainer}>
+        <View style={styles.helpItemContainer}>
           <SWText inTheCenter isTitle>
             Хотя приложение полностью бесплатное, вы всегда можете поддержать
             автора, если хотите.
           </SWText>
-          {renderHelpData()}
+          <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
+            {renderHelpData()}
+          </ScrollView>
         </View>
       ) : (
         <ActivityIndicator
