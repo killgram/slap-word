@@ -49,6 +49,10 @@ export interface IOnCheckWordSuccess {
   isHit?: boolean
 }
 
+export interface ICloseGame {
+  type: ActionTypes.CLOSE_GAME
+}
+
 export type IAction =
   | ICleanGame
   | IGetWordOfTheDay
@@ -56,3 +60,4 @@ export type IAction =
   | ISetKeyboard
   | ICheckWordRequest
   | IOnCheckWordSuccess
+  | ICloseGame

@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native'
 import { RNStyleType } from '@utils'
 
 interface IStyles {
-  container: RNStyleType
+  lineBox: RNStyleType
 }
 
 /**
@@ -10,10 +10,9 @@ interface IStyles {
  */
 export default function getStyle(): IStyles {
   return StyleSheet.create({
-    container: {
+    lineBox: {
       flexDirection: 'row',
-      flexWrap: 'wrap',
-      justifyContent: 'center',
+      justifyContent: 'space-between',
     },
   })
 }

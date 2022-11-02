@@ -63,3 +63,12 @@ export function onCheckWordSuccess(isHit: boolean): game.IAction {
     isHit,
   }
 }
+
+/**
+ * @return {game.IAction}
+ */
+export function closeGame(): game.IAction {
+  return {
+    type: game.ActionTypes.CLOSE_GAME,
+  }
+}

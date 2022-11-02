@@ -1,5 +1,5 @@
 import { NavigationType } from '@navigators'
-import { settings, game } from '@store/types'
+import { game } from '@store/types'
 import { IKeyboardLine } from '@store/types/game/Interfaces'
 
 interface IStateToProps {
@@ -7,6 +7,8 @@ interface IStateToProps {
   keyboardWords?: IKeyboardLine
   isLoading?: boolean
   hitWord?: string
+  isHit?: boolean
+  isCheckLoading?: boolean
 }
 
 export interface IState {
@@ -14,7 +16,7 @@ export interface IState {
 }
 
 interface IDispatchToProps {
-  updateWordOfDayLastTime?: () => settings.IAction
+  closeGame?: () => game.IAction
   getWordOfTheDay?: () => game.IAction
   checkWordRequest?: (word: string) => game.IAction
 }

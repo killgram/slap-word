@@ -76,17 +76,19 @@ const KeyboardPanel = (props: IKeyboardPanelProps) => {
   }
 
   return (
-    <View style={styles.container}>
-      {renderFirstPanel()}
-      {renderSecondPanel()}
-      {renderThirdPanel()}
-      <KeyboardIcon name="delete" onPress={onDeleteWord} />
-      {renderFourthPanel()}
-      <KeyboardIcon
-        name="enter"
-        onPress={onCheckWord}
-        disabled={isCheckPossible}
-      />
+    <View>
+      <View style={styles.lineBox}>{renderFirstPanel()}</View>
+      <View style={styles.lineBox}>{renderSecondPanel()}</View>
+      <View style={styles.lineBox}>{renderThirdPanel()}</View>
+      <View style={styles.lineBox}>
+        <KeyboardIcon name="delete" onPress={onDeleteWord} />
+        {renderFourthPanel()}
+        <KeyboardIcon
+          name="enter"
+          onPress={onCheckWord}
+          disabled={isCheckPossible}
+        />
+      </View>
     </View>
   )
 }

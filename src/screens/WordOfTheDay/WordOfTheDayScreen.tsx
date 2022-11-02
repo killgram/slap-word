@@ -3,8 +3,9 @@ import { IWordOfTheDayTypesProps } from './WordOfTheDayScreenTypes'
 import getStyle from './WordOfTheDayScreenStyles'
 import { SWContainer, SWText } from '@ui-kit/components'
 import { ActivityIndicator, View } from 'react-native'
-import { KeyboardPanel } from '@components'
+import { KeyboardPanel, WinNormalModal, LoseNormalModal } from '@components'
 import { getThemeColor } from '@utils'
+import { GameConfig } from '@configurations'
 
 /**
  * @description WordOfTheDay
@@ -14,15 +15,20 @@ import { getThemeColor } from '@utils'
 const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
   const {
     navigation,
-    updateWordOfDayLastTime,
+    closeGame,
     getWordOfTheDay,
     keyboardWords,
     isLoading,
     hitWord = '',
     checkWordRequest,
+    isHit,
+    isCheckLoading,
   } = props
   const styles = getStyle()
   const [inputWord, setInputWord] = useState('')
+  const [currentTry, setCurrentTry] = useState(0)
+  const [isWinModalVisible, setIsWinModalVisible] = useState(false)
+  const [isLoseModalVisible, setIsLoseModalVisible] = useState(false)
 
   useLayoutEffect(() => {
     navigation?.setOptions({
@@ -55,6 +61,27 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
    */
   const handlePressWord = () => {
     checkWordRequest?.(inputWord)
+    setCurrentTry(currentTry + 1)
+  }
+
+  useEffect(() => {
+    if (isHit) {
+      setIsWinModalVisible(true)
+    } else if (
+      currentTry >= GameConfig.WORD_OF_THE_DAY_LENGTH &&
+      !isCheckLoading
+    ) {
+      setIsLoseModalVisible(true)
+    }
+  }, [currentTry, isCheckLoading, isHit])
+
+  /**
+   * @description close modals handler
+   */
+  const handleCloseModal = () => {
+    setIsWinModalVisible(false)
+    setIsLoseModalVisible(false)
+    closeGame?.()
   }
 
   return isLoading ? (
@@ -73,6 +100,9 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
         <SWText isTitle size={20}>
           {inputWord.toUpperCase()}
         </SWText>
+        <SWText isTitle size={20}>
+          {hitWord}
+        </SWText>
       </View>
 
       <View style={styles.sectionBottom}>
@@ -84,6 +114,16 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
           isCheckPossible={inputWord.length < hitWord.length}
         />
       </View>
+
+      <WinNormalModal
+        visible={isWinModalVisible}
+        closeHandler={handleCloseModal}
+      />
+      <LoseNormalModal
+        visible={isLoseModalVisible}
+        closeHandler={handleCloseModal}
+        hitWord={hitWord}
+      />
     </SWContainer>
   )
 }

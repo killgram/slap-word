@@ -39,8 +39,10 @@ const gameReducer = (
     }
     // check word
     case game.ActionTypes.CHECK_WORD_REQUEST: {
+      const oldState = { ...state }
+      delete oldState.isHit
       return {
-        ...state,
+        ...oldState,
         isCheckLoading: true,
       }
     }
