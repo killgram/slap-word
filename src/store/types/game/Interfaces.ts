@@ -26,6 +26,7 @@ export interface IInitialState {
   isHit?: boolean
   wordLength?: number
   tableWords?: ITableLine
+  currentLine?: number
 }
 
 export interface ICleanGame {
@@ -64,6 +65,23 @@ export interface ISetupGameConfig {
   type: ActionTypes.SETUP_GAME_CONFIG
   wordLength?: number
   tableWords?: ITableLine
+  currentLine?: number
+}
+
+export interface IEnterWord {
+  type: ActionTypes.ENTER_WORD
+  currentLine?: number
+  word?: string
+}
+
+export interface IUpdateCurrentLine {
+  type: ActionTypes.UPDATE_CURRENT_LINE
+  currentLine?: number
+}
+
+export interface IDeleteWord {
+  type: ActionTypes.DELETE_WORD
+  currentLine?: number
 }
 
 export type IAction =
@@ -75,3 +93,6 @@ export type IAction =
   | IOnCheckWordSuccess
   | ICloseGame
   | ISetupGameConfig
+  | IUpdateCurrentLine
+  | IEnterWord
+  | IDeleteWord

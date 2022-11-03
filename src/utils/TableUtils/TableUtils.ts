@@ -20,7 +20,9 @@ const generateTableConfig = (wordLength: number) => {
   matrixArray.forEach((_, index) => {
     matrixArray[index] = [...lineArray]
   })
-  return matrixArray
+
+  // return deep update data, without link
+  return JSON.parse(JSON.stringify(matrixArray))
 }
 
 export { generateTableConfig }

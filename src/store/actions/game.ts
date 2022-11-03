@@ -88,3 +88,38 @@ export function setupGameConfig(
     tableWords,
   }
 }
+
+/**
+ * @param {number} currentLine
+ * @return {game.IAction}
+ */
+export function updateCurrentLine(currentLine: number): game.IAction {
+  return {
+    type: game.ActionTypes.UPDATE_CURRENT_LINE,
+    currentLine,
+  }
+}
+
+/**
+ * @param {number} currentLine
+ * @param {string} word
+ * @return {game.IAction}
+ */
+export function enterWord(currentLine: number, word: string): game.IAction {
+  return {
+    type: game.ActionTypes.ENTER_WORD,
+    currentLine,
+    word,
+  }
+}
+
+/**
+ * @param {number} currentLine
+ * @return {game.IAction}
+ */
+export function deleteWord(currentLine: number): game.IAction {
+  return {
+    type: game.ActionTypes.DELETE_WORD,
+    currentLine,
+  }
+}

@@ -60,6 +60,45 @@ const gameReducer = (
         ...state,
         wordLength: action.wordLength,
         tableWords: action.tableWords,
+        currentLine: 0,
+      }
+    }
+    // update current line
+    case game.ActionTypes.UPDATE_CURRENT_LINE: {
+      return {
+        ...state,
+        currentLine: action.currentLine,
+      }
+    }
+    // enter word
+    case game.ActionTypes.ENTER_WORD: {
+      const { currentLine, word } = action
+      const oldState = { ...state }
+      const oldTableWords = { ...state.tableWords }
+      const enterPosition = oldTableWords[currentLine!].find((item) => {
+        return item.name.length === 0
+      })
+      if (enterPosition) {
+        enterPosition.name = word!
+      }
+      return {
+        ...oldState,
+      }
+    }
+    // delete word
+    case game.ActionTypes.DELETE_WORD: {
+      const { currentLine } = action
+      const oldState = { ...state }
+      const oldTableWords = { ...state.tableWords }[currentLine!].reverse()
+      const enterPosition = oldTableWords.find((item) => {
+        return item.name.length !== 0
+      })
+      if (enterPosition) {
+        enterPosition.name = ''
+        oldTableWords.reverse()
+      }
+      return {
+        ...oldState,
       }
     }
 

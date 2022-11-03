@@ -11,6 +11,7 @@ interface IStateToProps {
   isCheckLoading?: boolean
   wordLength?: number
   tableWords?: ITableLine
+  currentLine?: number
 }
 
 export interface IState {
@@ -21,6 +22,9 @@ interface IDispatchToProps {
   closeGame?: () => game.IAction
   getWordOfTheDay?: () => game.IAction
   checkWordRequest?: (word: string) => game.IAction
+  updateCurrentLine?: (currentLine: number) => game.IAction
+  enterWord?: (currentLine: number, word: string) => game.IAction
+  deleteWord?: (currentLine: number) => game.IAction
 }
 
 export type IWordOfTheDayTypesProps = IDispatchToProps & IStateToProps

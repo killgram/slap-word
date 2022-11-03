@@ -30,10 +30,13 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
     isCheckLoading,
     wordLength = 5,
     tableWords,
+    currentLine = 0,
+    updateCurrentLine,
+    enterWord,
+    deleteWord,
   } = props
   const styles = getStyle()
   const [inputWord, setInputWord] = useState('')
-  const [currentTry, setCurrentTry] = useState(0)
   const [isWinModalVisible, setIsWinModalVisible] = useState(false)
   const [isLoseModalVisible, setIsLoseModalVisible] = useState(false)
 
@@ -54,13 +57,15 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
    */
   const handleInputWord = (word: string) => {
     inputWord.length < hitWord.length && setInputWord(inputWord + word)
+    inputWord.length < hitWord.length && enterWord?.(currentLine, word)
   }
 
   /**
    * @description handle delete word from line
    */
   const handleDeleteWord = () => {
-    setInputWord(inputWord.slice(0, -1))
+    inputWord.length !== 0 && setInputWord(inputWord.slice(0, -1))
+    inputWord.length !== 0 && deleteWord?.(currentLine)
   }
 
   /**
@@ -68,19 +73,20 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
    */
   const handlePressWord = () => {
     checkWordRequest?.(inputWord)
-    setCurrentTry(currentTry + 1)
+    updateCurrentLine?.(currentLine + 1)
+    setInputWord('')
   }
 
   useEffect(() => {
     if (isHit) {
       setIsWinModalVisible(true)
     } else if (
-      currentTry >= GameConfig.WORD_OF_THE_DAY_LENGTH &&
+      currentLine >= GameConfig.WORD_OF_THE_DAY_LENGTH + 1 &&
       !isCheckLoading
     ) {
       setIsLoseModalVisible(true)
     }
-  }, [currentTry, isCheckLoading, isHit])
+  }, [currentLine, isCheckLoading, isHit])
 
   /**
    * @description close modals handler
@@ -104,7 +110,11 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
   ) : (
     <SWContainer isKeyBoardDismiss={false}>
       <View style={styles.sectionTop}>
-        <TablePanel wordLength={wordLength} tableWords={tableWords!} />
+        <TablePanel
+          wordLength={wordLength}
+          tableWords={tableWords!}
+          currentLine={currentLine}
+        />
       </View>
 
       <View style={styles.sectionBottom}>
