@@ -110,6 +110,7 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
           tableWords={tableWords!}
           currentLine={currentLine}
         />
+        <SWText>{hitWord}</SWText>
       </View>
 
       <View style={styles.sectionBottom}>

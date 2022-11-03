@@ -30,7 +30,7 @@ import { keyGenerate } from './KeyGenerate'
 import { openLink } from './OpenLink'
 import { gamePossibility } from './GamePossibility'
 import { getQueryParamsConfig } from './GetQueryParamsConfig'
-import { generateKeyboardConfig } from './KeyboardUtils'
+import { generateKeyboardConfig, updateKeyboardConfig } from './KeyboardUtils'
 import { numberToArray } from './NumberToArray'
 import { generateTableConfig } from './TableUtils'
 import { getInputWord } from './GetInputWord'
@@ -63,6 +63,7 @@ export {
   generateTableConfig,
   getInputWord,
   playWrongSound,
+  updateKeyboardConfig,
 }
 
 export type {

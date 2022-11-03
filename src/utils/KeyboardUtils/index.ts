@@ -1,3 +1,3 @@
-import { generateKeyboardConfig } from './KeyboardUtils'
+import { generateKeyboardConfig, updateKeyboardConfig } from './KeyboardUtils'
 
-export { generateKeyboardConfig }
+export { generateKeyboardConfig, updateKeyboardConfig }
