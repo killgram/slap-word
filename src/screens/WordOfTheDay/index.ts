@@ -25,7 +25,7 @@ const mapStateToProps = (state: IState): IWordOfTheDayTypesProps => ({
  * @return {IWordOfTheDayTypesProps}
  */
 const mapDispatchToProps = (dispatch: Dispatch): IWordOfTheDayTypesProps => ({
-  closeGame: () => dispatch(gameAction.closeGame()),
+  closeGame: (isDone?: boolean) => dispatch(gameAction.closeGame(isDone)),
   getWordOfTheDay: () => dispatch(gameAction.getWordOfTheDay()),
   checkWordRequest: (word: string) =>
     dispatch(gameAction.checkWordRequest(word)),

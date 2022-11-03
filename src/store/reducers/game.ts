@@ -54,6 +54,13 @@ const gameReducer = (
         isHit: action.isHit,
       }
     }
+    case game.ActionTypes.CHECK_WORD_ERROR: {
+      const oldState = { ...state }
+      delete oldState.isCheckLoading
+      return {
+        ...oldState,
+      }
+    }
     // game config
     case game.ActionTypes.SETUP_GAME_CONFIG: {
       return {

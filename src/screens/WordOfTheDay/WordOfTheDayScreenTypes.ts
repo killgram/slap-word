@@ -19,7 +19,7 @@ export interface IState {
 }
 
 interface IDispatchToProps {
-  closeGame?: () => game.IAction
+  closeGame?: (isDone?: boolean) => game.IAction
   getWordOfTheDay?: () => game.IAction
   checkWordRequest?: (word: string) => game.IAction
   enterWord?: (currentLine: number, word: string) => game.IAction

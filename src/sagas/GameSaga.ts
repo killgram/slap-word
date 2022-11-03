@@ -9,7 +9,7 @@ import {
   updateKeyboardConfig,
   updateTableConfig,
 } from '@utils'
-import { ICheckWordRequest } from '@store/types/game/Interfaces'
+import { ICheckWordRequest, ICloseGame } from '@store/types/game/Interfaces'
 import { Navigate } from '@navigators'
 import { GameConfig } from '@configurations'
 
@@ -81,19 +81,18 @@ export function* checkWordRequest(action: ICheckWordRequest): any {
         hitWord,
         tableWords,
       )
-
       yield put(gameAction.setKeyboard(newKeyboardConfig))
       yield put(gameAction.setupGameConfig(hitWord.length, newTableConfig))
-      // if (hitWord === word) {
-      //   yield put(gameAction.setKeyboard(keyboardWords))
-      //   yield put(gameAction.onCheckWordSuccess(true))
-      // }
+      if (hitWord === word) {
+        yield put(gameAction.onCheckWordSuccess(true))
+      } else {
+        yield put(gameAction.checkWordError())
+      }
       yield put(gameAction.updateCurrentLine(currentLine + 1))
     } else {
+      yield put(gameAction.checkWordError())
       yield call(errorToast, 'Слово не найдено 💩')
       yield call(playWrongSound)
-
-      // yield put(gameAction.onCheckWordSuccess(false))
     }
   } catch (e) {
     yield call(errorToast, 'Что-то пошло не так 😔')
@@ -103,9 +102,12 @@ export function* checkWordRequest(action: ICheckWordRequest): any {
 /**
  * @description close game saga
  */
-export function* closeGame(): any {
+export function* closeGame(action: ICloseGame): any {
+  const { isDone } = action
   try {
-    yield put(settingsAction.updateWordOfDayLastTime())
+    if (isDone) {
+      yield put(settingsAction.updateWordOfDayLastTime())
+    }
     yield put(gameAction.cleanGame())
     yield call(Navigate.toAppStack)
   } catch (e) {

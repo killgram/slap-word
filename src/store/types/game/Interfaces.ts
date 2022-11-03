@@ -57,8 +57,13 @@ export interface IOnCheckWordSuccess {
   isHit?: boolean
 }
 
+export interface ICheckWordError {
+  type: ActionTypes.CHECK_WORD_ERROR
+}
+
 export interface ICloseGame {
   type: ActionTypes.CLOSE_GAME
+  isDone?: boolean
 }
 
 export interface ISetupGameConfig {
@@ -96,3 +101,4 @@ export type IAction =
   | IUpdateCurrentLine
   | IEnterWord
   | IDeleteWord
+  | ICheckWordError

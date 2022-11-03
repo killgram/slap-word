@@ -67,9 +67,20 @@ export function onCheckWordSuccess(isHit: boolean): game.IAction {
 /**
  * @return {game.IAction}
  */
-export function closeGame(): game.IAction {
+export function checkWordError(): game.IAction {
+  return {
+    type: game.ActionTypes.CHECK_WORD_ERROR,
+  }
+}
+
+/**
+ * @param {boolean} isDone
+ * @return {game.IAction}
+ */
+export function closeGame(isDone?: boolean): game.IAction {
   return {
     type: game.ActionTypes.CLOSE_GAME,
+    isDone,
   }
 }
 

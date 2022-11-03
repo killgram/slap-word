@@ -8,6 +8,7 @@ import {
   WinNormalModal,
   LoseNormalModal,
   TablePanel,
+  ClassicGameHeader,
 } from '@components'
 import { getInputWord, getThemeColor } from '@utils'
 import { GameConfig } from '@configurations'
@@ -89,7 +90,7 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
   const handleCloseModal = () => {
     setIsWinModalVisible(false)
     setIsLoseModalVisible(false)
-    closeGame?.()
+    closeGame?.(true)
   }
 
   return isLoading ? (
@@ -105,12 +106,16 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
   ) : (
     <SWContainer isKeyBoardDismiss={false}>
       <View style={styles.sectionTop}>
+        <ClassicGameHeader
+          title="Слово дня"
+          isLoading={isCheckLoading}
+          onExit={() => closeGame?.(false)}
+        />
         <TablePanel
           wordLength={wordLength}
           tableWords={tableWords!}
           currentLine={currentLine}
         />
-        <SWText>{hitWord}</SWText>
       </View>
 
       <View style={styles.sectionBottom}>
