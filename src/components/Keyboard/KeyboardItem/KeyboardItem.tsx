@@ -18,9 +18,9 @@ const KeyboardItem = (props: IKeyboardItemProps) => {
       activeOpacity={0.9}
       style={StyleSheet.flatten([
         styles.container,
-        hit && styles.hit,
         missing && styles.missing,
         coincidence && styles.coincidence,
+        hit && styles.hit,
       ])}
       onPress={() => onPress(name)}
     >

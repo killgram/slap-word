@@ -7,6 +7,7 @@ import {
   generateTableConfig,
   playWrongSound,
   updateKeyboardConfig,
+  updateTableConfig,
 } from '@utils'
 import { ICheckWordRequest } from '@store/types/game/Interfaces'
 import { Navigate } from '@navigators'
@@ -63,6 +64,7 @@ export function* checkWordRequest(action: ICheckWordRequest): any {
   const currentLine = state?.game?.currentLine
   const hitWord = state?.game?.word
   const keyboardWords = state?.game?.keyboardWords
+  const tableWords = state?.game?.tableWords
 
   try {
     const data = yield call(checkWordService, accessToken, word!)
@@ -73,8 +75,15 @@ export function* checkWordRequest(action: ICheckWordRequest): any {
         hitWord,
         keyboardWords,
       )
+      const newTableConfig = yield call(
+        updateTableConfig,
+        word!,
+        hitWord,
+        tableWords,
+      )
+
       yield put(gameAction.setKeyboard(newKeyboardConfig))
-      // yield put(gameAction.setupGameConfig(hitWord.length, newKeyboardConfig))
+      yield put(gameAction.setupGameConfig(hitWord.length, newTableConfig))
       // if (hitWord === word) {
       //   yield put(gameAction.setKeyboard(keyboardWords))
       //   yield put(gameAction.onCheckWordSuccess(true))

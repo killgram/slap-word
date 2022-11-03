@@ -1,3 +1,3 @@
-import { generateTableConfig } from './TableUtils'
+import { generateTableConfig, updateTableConfig } from './TableUtils'
 
-export { generateTableConfig }
+export { generateTableConfig, updateTableConfig }

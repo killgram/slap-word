@@ -32,7 +32,7 @@ import { gamePossibility } from './GamePossibility'
 import { getQueryParamsConfig } from './GetQueryParamsConfig'
 import { generateKeyboardConfig, updateKeyboardConfig } from './KeyboardUtils'
 import { numberToArray } from './NumberToArray'
-import { generateTableConfig } from './TableUtils'
+import { generateTableConfig, updateTableConfig } from './TableUtils'
 import { getInputWord } from './GetInputWord'
 
 export {
@@ -64,6 +64,7 @@ export {
   getInputWord,
   playWrongSound,
   updateKeyboardConfig,
+  updateTableConfig,
 }
 
 export type {
