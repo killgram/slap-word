@@ -15,7 +15,7 @@ const KeyboardItem = (props: IKeyboardItemProps) => {
 
   return (
     <TouchableOpacity
-      activeOpacity={1}
+      activeOpacity={0.9}
       style={StyleSheet.flatten([
         styles.container,
         hit && styles.hit,

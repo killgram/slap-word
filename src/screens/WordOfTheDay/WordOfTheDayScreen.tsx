@@ -3,7 +3,12 @@ import { IWordOfTheDayTypesProps } from './WordOfTheDayScreenTypes'
 import getStyle from './WordOfTheDayScreenStyles'
 import { SWContainer, SWText } from '@ui-kit/components'
 import { ActivityIndicator, View } from 'react-native'
-import { KeyboardPanel, WinNormalModal, LoseNormalModal } from '@components'
+import {
+  KeyboardPanel,
+  WinNormalModal,
+  LoseNormalModal,
+  TablePanel,
+} from '@components'
 import { getThemeColor } from '@utils'
 import { GameConfig } from '@configurations'
 
@@ -23,6 +28,8 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
     checkWordRequest,
     isHit,
     isCheckLoading,
+    wordLength = 5,
+    tableWords,
   } = props
   const styles = getStyle()
   const [inputWord, setInputWord] = useState('')
@@ -97,12 +104,7 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
   ) : (
     <SWContainer isKeyBoardDismiss={false}>
       <View style={styles.sectionTop}>
-        <SWText isTitle size={20}>
-          {inputWord.toUpperCase()}
-        </SWText>
-        <SWText isTitle size={20}>
-          {hitWord}
-        </SWText>
+        <TablePanel wordLength={wordLength} tableWords={tableWords!} />
       </View>
 
       <View style={styles.sectionBottom}>

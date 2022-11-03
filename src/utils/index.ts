@@ -25,6 +25,8 @@ import { openLink } from './OpenLink'
 import { gamePossibility } from './GamePossibility'
 import { getQueryParamsConfig } from './GetQueryParamsConfig'
 import { generateKeyboardConfig } from './KeyboardUtils'
+import { numberToArray } from './NumberToArray'
+import { generateTableConfig } from './TableUtils'
 
 export {
   width,
@@ -50,6 +52,8 @@ export {
   gamePossibility,
   getQueryParamsConfig,
   generateKeyboardConfig,
+  numberToArray,
+  generateTableConfig,
 }
 
 export type {

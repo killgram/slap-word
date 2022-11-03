@@ -1,6 +1,6 @@
 import { ActionTypes } from './ActionTypes'
 
-interface ILine {
+export interface ILine {
   coincidence?: boolean
   missing?: boolean
   hit?: boolean
@@ -11,7 +11,12 @@ interface IKeyboardLineConfig<T> {
   [key: string]: Array<T>
 }
 
+interface ITableLineConfig<T> {
+  [key: number]: Array<T>
+}
+
 export type IKeyboardLine = IKeyboardLineConfig<ILine>
+export type ITableLine = ITableLineConfig<ILine>
 
 export interface IInitialState {
   isLoading?: boolean
@@ -19,6 +24,8 @@ export interface IInitialState {
   keyboardWords?: IKeyboardLine
   isCheckLoading?: boolean
   isHit?: boolean
+  wordLength?: number
+  tableWords?: ITableLine
 }
 
 export interface ICleanGame {
@@ -53,6 +60,12 @@ export interface ICloseGame {
   type: ActionTypes.CLOSE_GAME
 }
 
+export interface ISetupGameConfig {
+  type: ActionTypes.SETUP_GAME_CONFIG
+  wordLength?: number
+  tableWords?: ITableLine
+}
+
 export type IAction =
   | ICleanGame
   | IGetWordOfTheDay
@@ -61,3 +74,4 @@ export type IAction =
   | ICheckWordRequest
   | IOnCheckWordSuccess
   | ICloseGame
+  | ISetupGameConfig

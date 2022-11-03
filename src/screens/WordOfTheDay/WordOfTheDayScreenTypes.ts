@@ -1,6 +1,6 @@
 import { NavigationType } from '@navigators'
 import { game } from '@store/types'
-import { IKeyboardLine } from '@store/types/game/Interfaces'
+import { IKeyboardLine, ITableLine } from '@store/types/game/Interfaces'
 
 interface IStateToProps {
   navigation?: NavigationType
@@ -9,6 +9,8 @@ interface IStateToProps {
   hitWord?: string
   isHit?: boolean
   isCheckLoading?: boolean
+  wordLength?: number
+  tableWords?: ITableLine
 }
 
 export interface IState {

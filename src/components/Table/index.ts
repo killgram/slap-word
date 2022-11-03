@@ -1,2 +1,2 @@
-export { WordItem } from './WordItem'
-export { WordLine } from './WordLine'
+export { TableItem } from './TableItem'
+export { TablePanel } from './TablePanel'

@@ -54,6 +54,14 @@ const gameReducer = (
         isHit: action.isHit,
       }
     }
+    // game config
+    case game.ActionTypes.SETUP_GAME_CONFIG: {
+      return {
+        ...state,
+        wordLength: action.wordLength,
+        tableWords: action.tableWords,
+      }
+    }
 
     default: {
       return state

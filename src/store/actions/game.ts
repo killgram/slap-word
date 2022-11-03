@@ -1,5 +1,5 @@
 import { game } from '@store/types'
-import { IKeyboardLine } from '@store/types/game/Interfaces'
+import { IKeyboardLine, ITableLine } from '@store/types/game/Interfaces'
 
 /**
  *
@@ -70,5 +70,21 @@ export function onCheckWordSuccess(isHit: boolean): game.IAction {
 export function closeGame(): game.IAction {
   return {
     type: game.ActionTypes.CLOSE_GAME,
+  }
+}
+
+/**
+ * @param {number} wordLength
+ * @param {ITableLine} tableWords
+ * @return {game.IAction}
+ */
+export function setupGameConfig(
+  wordLength: number,
+  tableWords: ITableLine,
+): game.IAction {
+  return {
+    type: game.ActionTypes.SETUP_GAME_CONFIG,
+    wordLength,
+    tableWords,
   }
 }

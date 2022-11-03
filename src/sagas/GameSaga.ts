@@ -1,9 +1,10 @@
 import { call, put, select } from 'redux-saga/effects'
 import { gameAction, settingsAction } from '@store/actions'
 import { checkWordService, getWordOfDayService } from '@services'
-import { errorToast, generateKeyboardConfig } from '@utils'
+import { errorToast, generateKeyboardConfig, generateTableConfig } from '@utils'
 import { ICheckWordRequest } from '@store/types/game/Interfaces'
 import { Navigate } from '@navigators'
+import { GameConfig } from '@configurations'
 
 /**
  * @description get word of the day saga
@@ -15,7 +16,20 @@ export function* getWordOfTheDay(): any {
   try {
     const data = yield call(getWordOfDayService, accessToken)
     yield call(setKeyboard)
+    yield call(setupGameConfig, GameConfig.WORD_OF_THE_DAY_LENGTH)
     yield put(gameAction.onWordOfTheDaySuccess(data.data.word))
+  } catch (e) {
+    yield call(errorToast, 'Что-то пошло не так 😔')
+  }
+}
+
+/**
+ * @description setup game config saga
+ */
+export function* setupGameConfig(wordLength: number): any {
+  try {
+    const config = generateTableConfig(wordLength)
+    yield put(gameAction.setupGameConfig(wordLength, config))
   } catch (e) {
     yield call(errorToast, 'Что-то пошло не так 😔')
   }

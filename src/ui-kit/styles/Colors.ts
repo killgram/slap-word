@@ -15,6 +15,7 @@ export enum Colors {
   VEGAS_GOLD = '#c9b458',
   TARNISHED_SILVER = '#787c7e',
   FERNTASTIC = '#6aaa64',
+  WHITE = '#ffffff',
 }
 
 export enum LightColors {
@@ -53,6 +54,7 @@ export enum LightColors {
   // items
   BACKGROUND_ITEMS = Colors.OCEAN_STORM,
   TITLE_ITEMS = Colors.TROLL_SLAYER_ORANGE,
+  TABLE_ITEM_BACKGROUND = Colors.WHITE,
   // keyboard
   BACKGROUND_KEYBOARD = Colors.ANGEL_HAIR_SILVER,
   COINCIDENCE_BACKGROUND_KEYBOARD = Colors.VEGAS_GOLD,

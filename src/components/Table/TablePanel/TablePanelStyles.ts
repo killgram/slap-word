@@ -3,6 +3,7 @@ import { RNStyleType } from '@utils'
 
 interface IStyles {
   container: RNStyleType
+  lineBox: RNStyleType
 }
 
 /**
@@ -10,6 +11,11 @@ interface IStyles {
  */
 export default function getStyle(): IStyles {
   return StyleSheet.create({
-    container: {},
+    container: {
+      alignItems: 'center',
+    },
+    lineBox: {
+      flexDirection: 'row',
+    },
   })
 }
