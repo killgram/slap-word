@@ -3,8 +3,8 @@ import { ApiList, Domains } from '@configurations'
 
 /**
  * @description login service
- * @param login
- * @param password
+ * @param {string} login
+ * @param {string} password
  */
 const loginService = (login: string, password: string) => {
   const url = `${Domains.getDomain()}${ApiList.SIGN_IN}`
@@ -17,8 +17,8 @@ const loginService = (login: string, password: string) => {
 
 /**
  * @description sign up service
- * @param login
- * @param password
+ * @param {string} login
+ * @param {string} password
  */
 const signUpService = (login: string, password: string) => {
   const url = `${Domains.getDomain()}${ApiList.SIGN_UP}`

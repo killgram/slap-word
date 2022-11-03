@@ -28,6 +28,20 @@ const settingsReducer = (
         wordOfDayTime: Date.now(),
       }
     }
+    // wrong word
+    case settings.ActionTypes.WRONG_WORD_REQUEST: {
+      return {
+        ...state,
+        isPostLoading: true,
+      }
+    }
+    case settings.ActionTypes.ON_WRONG_WORD_SUCCESS: {
+      const oldState = { ...state }
+      delete oldState.isPostLoading
+      return {
+        ...oldState,
+      }
+    }
 
     default: {
       return state

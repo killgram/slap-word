@@ -11,7 +11,6 @@ import {
   ClassicGameHeader,
 } from '@components'
 import { getInputWord, getThemeColor } from '@utils'
-import { GameConfig } from '@configurations'
 
 /**
  * @description WordOfTheDay
@@ -34,6 +33,8 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
     currentLine = 0,
     enterWord,
     deleteWord,
+    isPostLoading,
+    wrongWordRequest,
   } = props
   const styles = getStyle()
   const inputWord = getInputWord(tableWords?.[currentLine])
@@ -76,10 +77,7 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
   useEffect(() => {
     if (isHit) {
       setIsWinModalVisible(true)
-    } else if (
-      currentLine >= GameConfig.WORD_OF_THE_DAY_LENGTH + 1 &&
-      !isCheckLoading
-    ) {
+    } else if (currentLine >= wordLength + 1 && !isCheckLoading) {
       setIsLoseModalVisible(true)
     }
   }, [currentLine, isCheckLoading, isHit])
@@ -91,6 +89,13 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
     setIsWinModalVisible(false)
     setIsLoseModalVisible(false)
     closeGame?.(true)
+  }
+
+  /**
+   * @description handler for post wrong word in modal
+   */
+  const handlePostWrongWord = () => {
+    wrongWordRequest?.(hitWord)
   }
 
   return isLoading ? (
@@ -111,11 +116,7 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
           isLoading={isCheckLoading}
           onExit={() => closeGame?.(false)}
         />
-        <TablePanel
-          wordLength={wordLength}
-          tableWords={tableWords!}
-          currentLine={currentLine}
-        />
+        <TablePanel wordLength={wordLength} tableWords={tableWords!} />
       </View>
 
       <View style={styles.sectionBottom}>
@@ -136,6 +137,8 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
         visible={isLoseModalVisible}
         closeHandler={handleCloseModal}
         hitWord={hitWord}
+        isPostLoading={isPostLoading}
+        onPostWord={handlePostWrongWord}
       />
     </SWContainer>
   )

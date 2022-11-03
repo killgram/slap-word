@@ -11,7 +11,7 @@ import { keyGenerate, numberToArray } from '@utils'
  * @constructor
  */
 const TablePanel = (props: ITablePanelProps) => {
-  const { wordLength, tableWords, currentLine } = props
+  const { wordLength, tableWords } = props
   const styles = getStyle()
   const tableMatrix = numberToArray(wordLength + 1)
 

@@ -3,7 +3,7 @@ import WordOfTheDayScreen from './WordOfTheDayScreen'
 import { connect } from 'react-redux'
 import { IState, IWordOfTheDayTypesProps } from './WordOfTheDayScreenTypes'
 import { Dispatch } from 'redux'
-import { gameAction } from '@store/actions'
+import { gameAction, settingsAction } from '@store/actions'
 
 /**
  * @param {IState} state
@@ -18,6 +18,7 @@ const mapStateToProps = (state: IState): IWordOfTheDayTypesProps => ({
   wordLength: state?.game?.wordLength,
   tableWords: state?.game?.tableWords,
   currentLine: state?.game?.currentLine,
+  isPostLoading: state?.settings?.isPostLoading,
 })
 
 /**
@@ -33,6 +34,8 @@ const mapDispatchToProps = (dispatch: Dispatch): IWordOfTheDayTypesProps => ({
     dispatch(gameAction.enterWord(currentLine, word)),
   deleteWord: (currentLine: number) =>
     dispatch(gameAction.deleteWord(currentLine)),
+  wrongWordRequest: (word: string) =>
+    dispatch(settingsAction.wrongWordRequest(word)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(WordOfTheDayScreen)
