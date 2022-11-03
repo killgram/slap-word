@@ -9,7 +9,7 @@ import {
   LoseNormalModal,
   TablePanel,
 } from '@components'
-import { getThemeColor } from '@utils'
+import { getInputWord, getThemeColor } from '@utils'
 import { GameConfig } from '@configurations'
 
 /**
@@ -31,12 +31,11 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
     wordLength = 5,
     tableWords,
     currentLine = 0,
-    updateCurrentLine,
     enterWord,
     deleteWord,
   } = props
   const styles = getStyle()
-  const [inputWord, setInputWord] = useState('')
+  const inputWord = getInputWord(tableWords?.[currentLine])
   const [isWinModalVisible, setIsWinModalVisible] = useState(false)
   const [isLoseModalVisible, setIsLoseModalVisible] = useState(false)
 
@@ -56,7 +55,6 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
    * @param {string} word
    */
   const handleInputWord = (word: string) => {
-    inputWord.length < hitWord.length && setInputWord(inputWord + word)
     inputWord.length < hitWord.length && enterWord?.(currentLine, word)
   }
 
@@ -64,7 +62,6 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
    * @description handle delete word from line
    */
   const handleDeleteWord = () => {
-    inputWord.length !== 0 && setInputWord(inputWord.slice(0, -1))
     inputWord.length !== 0 && deleteWord?.(currentLine)
   }
 
@@ -73,8 +70,6 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
    */
   const handlePressWord = () => {
     checkWordRequest?.(inputWord)
-    updateCurrentLine?.(currentLine + 1)
-    setInputWord('')
   }
 
   useEffect(() => {

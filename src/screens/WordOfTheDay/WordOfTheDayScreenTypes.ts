@@ -22,7 +22,6 @@ interface IDispatchToProps {
   closeGame?: () => game.IAction
   getWordOfTheDay?: () => game.IAction
   checkWordRequest?: (word: string) => game.IAction
-  updateCurrentLine?: (currentLine: number) => game.IAction
   enterWord?: (currentLine: number, word: string) => game.IAction
   deleteWord?: (currentLine: number) => game.IAction
 }

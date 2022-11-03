@@ -1,7 +1,12 @@
 import { call, put, select } from 'redux-saga/effects'
 import { gameAction, settingsAction } from '@store/actions'
 import { checkWordService, getWordOfDayService } from '@services'
-import { errorToast, generateKeyboardConfig, generateTableConfig } from '@utils'
+import {
+  errorToast,
+  generateKeyboardConfig,
+  generateTableConfig,
+  playWrongSound,
+} from '@utils'
 import { ICheckWordRequest } from '@store/types/game/Interfaces'
 import { Navigate } from '@navigators'
 import { GameConfig } from '@configurations'
@@ -54,13 +59,18 @@ export function* checkWordRequest(action: ICheckWordRequest): any {
   const { word } = action
   const state = yield select()
   const accessToken = state?.app?.accessToken
+  const currentLine = state?.game?.currentLine
 
   try {
     const data = yield call(checkWordService, accessToken, word!)
     if (data.data) {
-      yield put(gameAction.onCheckWordSuccess(true))
+      // yield put(gameAction.onCheckWordSuccess(true))
+      yield put(gameAction.updateCurrentLine(currentLine + 1))
     } else {
-      yield put(gameAction.onCheckWordSuccess(false))
+      yield call(errorToast, 'Слово не найдено 💩')
+      yield call(playWrongSound)
+
+      // yield put(gameAction.onCheckWordSuccess(false))
     }
   } catch (e) {
     yield call(errorToast, 'Что-то пошло не так 😔')

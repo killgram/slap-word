@@ -29,8 +29,6 @@ const mapDispatchToProps = (dispatch: Dispatch): IWordOfTheDayTypesProps => ({
   getWordOfTheDay: () => dispatch(gameAction.getWordOfTheDay()),
   checkWordRequest: (word: string) =>
     dispatch(gameAction.checkWordRequest(word)),
-  updateCurrentLine: (currentLine: number) =>
-    dispatch(gameAction.updateCurrentLine(currentLine)),
   enterWord: (currentLine: number, word: string) =>
     dispatch(gameAction.enterWord(currentLine, word)),
   deleteWord: (currentLine: number) =>

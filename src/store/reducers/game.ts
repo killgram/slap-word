@@ -74,13 +74,14 @@ const gameReducer = (
     case game.ActionTypes.ENTER_WORD: {
       const { currentLine, word } = action
       const oldState = { ...state }
-      const oldTableWords = { ...state.tableWords }
+      const oldTableWords = JSON.parse(JSON.stringify({ ...state.tableWords }))
       const enterPosition = oldTableWords[currentLine!].find((item) => {
         return item.name.length === 0
       })
       if (enterPosition) {
         enterPosition.name = word!
       }
+      oldState.tableWords = oldTableWords
       return {
         ...oldState,
       }
@@ -89,14 +90,17 @@ const gameReducer = (
     case game.ActionTypes.DELETE_WORD: {
       const { currentLine } = action
       const oldState = { ...state }
-      const oldTableWords = { ...state.tableWords }[currentLine!].reverse()
-      const enterPosition = oldTableWords.find((item) => {
+      const oldTableWords = JSON.parse(JSON.stringify({ ...state.tableWords }))
+
+      const newTableWords = oldTableWords[currentLine!].reverse()
+      const enterPosition = newTableWords.find((item) => {
         return item.name.length !== 0
       })
       if (enterPosition) {
         enterPosition.name = ''
-        oldTableWords.reverse()
+        newTableWords.reverse()
       }
+      oldState.tableWords = oldTableWords
       return {
         ...oldState,
       }

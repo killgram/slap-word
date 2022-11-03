@@ -16,7 +16,13 @@ import {
   IStatusBarThemes,
   getThemeStatusBar,
 } from './Theme'
-import { playSound, SoundTypes, SoundList, getSound } from './Sound'
+import {
+  playSound,
+  SoundTypes,
+  SoundList,
+  getSound,
+  playWrongSound,
+} from './Sound'
 import { errorToast, successToast } from './Toast'
 import { getAccessTokenConfig } from './GetAccessTokenConfig'
 import { copyToClipboard, getDataToBuffer } from './Clipboard'
@@ -27,6 +33,7 @@ import { getQueryParamsConfig } from './GetQueryParamsConfig'
 import { generateKeyboardConfig } from './KeyboardUtils'
 import { numberToArray } from './NumberToArray'
 import { generateTableConfig } from './TableUtils'
+import { getInputWord } from './GetInputWord'
 
 export {
   width,
@@ -54,6 +61,8 @@ export {
   generateKeyboardConfig,
   numberToArray,
   generateTableConfig,
+  getInputWord,
+  playWrongSound,
 }
 
 export type {

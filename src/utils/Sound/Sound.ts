@@ -1,5 +1,5 @@
 import Sound from 'react-native-sound'
-import { SoundTypes, SoundList, errorToast } from '@utils'
+import { errorToast, SoundList, SoundTypes } from '@utils'
 
 /**
  * @description func to play know sound effect
@@ -49,4 +49,16 @@ const soundPlayer = (file: unknown) => {
   })
 }
 
-export { playSound, getSound }
+/**
+ * @description play SoundTypes.WRONG_WORD instantly
+ */
+const playWrongSound = () => {
+  const file = soundAdapter(SoundTypes.WRONG_WORD)
+  Sound.setCategory('Playback')
+  const sound = new Sound(file, () => {
+    sound.setVolume(0.1)
+    sound.play()
+  })
+}
+
+export { playSound, getSound, playWrongSound }
