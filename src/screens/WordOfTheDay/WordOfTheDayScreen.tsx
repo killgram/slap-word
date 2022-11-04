@@ -20,22 +20,23 @@ import { getInputWord, getThemeColor } from '@utils'
 const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
   const {
     navigation,
-    closeGame,
-    getWordOfTheDay,
     keyboardWords,
     isLoading,
     hitWord = '',
-    checkWordRequest,
     isHit,
     isCheckLoading,
     wordLength = 5,
     tableWords,
     currentLine = 0,
-    enterWord,
-    deleteWord,
     isPostLoading,
     wrongWordRequest,
+    closeGame,
+    getWordOfTheDay,
+    checkWordRequest,
+    enterWord,
+    deleteWord,
   } = props
+
   const styles = getStyle()
   const inputWord = getInputWord(tableWords?.[currentLine])
   const [isWinModalVisible, setIsWinModalVisible] = useState(false)

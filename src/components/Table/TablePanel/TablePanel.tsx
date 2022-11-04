@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import getStyle from './TablePanelStyles'
 import { ITablePanelProps } from './TablePanelTypes'
 import { View } from 'react-native'
@@ -39,7 +39,9 @@ const TablePanel = (props: ITablePanelProps) => {
     })
   }
 
-  return <View style={styles.container}>{renderMatrix()}</View>
+  const data = useMemo(() => renderMatrix(), [tableWords])
+
+  return <View style={styles.container}>{data}</View>
 }
 
 export default TablePanel
