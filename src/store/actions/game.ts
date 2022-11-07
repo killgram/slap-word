@@ -134,3 +134,14 @@ export function deleteWord(currentLine: number): game.IAction {
     currentLine,
   }
 }
+
+/**
+ * @param {number} currentLine
+ * @return {game.IAction}
+ */
+export function renderedTableLine(currentLine: number): game.IAction {
+  return {
+    type: game.ActionTypes.RENDERED_TABLE_LINE,
+    currentLine,
+  }
+}

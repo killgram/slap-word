@@ -11,12 +11,13 @@ import { keyGenerate, numberToArray } from '@utils'
  * @constructor
  */
 const TablePanel = (props: ITablePanelProps) => {
-  const { wordLength, tableWords } = props
+  const { wordLength, tableWords, onRenderedLine } = props
   const styles = getStyle()
   const tableMatrix = numberToArray(wordLength + 1)
+  const animateStep = 300
 
   const renderLine = (line) => {
-    return line?.map((item) => {
+    return line?.map((item, index) => {
       return (
         <TableItem
           key={keyGenerate()}
@@ -24,6 +25,10 @@ const TablePanel = (props: ITablePanelProps) => {
           missing={item.missing}
           coincidence={item.coincidence}
           value={item.name}
+          isRendered={item.isRendered}
+          onRender={onRenderedLine}
+          lastItem={index === line.length - 1}
+          timeOutOrder={animateStep + index * animateStep}
         />
       )
     })
@@ -39,9 +44,9 @@ const TablePanel = (props: ITablePanelProps) => {
     })
   }
 
-  const data = useMemo(() => renderMatrix(), [tableWords])
+  const dataMatrix = useMemo(() => renderMatrix(), [tableWords])
 
-  return <View style={styles.container}>{data}</View>
+  return <View style={styles.container}>{dataMatrix}</View>
 }
 
 export default TablePanel

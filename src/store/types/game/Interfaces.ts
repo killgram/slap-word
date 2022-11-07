@@ -5,6 +5,7 @@ export interface ILine {
   missing?: boolean
   hit?: boolean
   name: string
+  isRendered?: boolean
 }
 
 interface IKeyboardLineConfig<T> {
@@ -70,7 +71,6 @@ export interface ISetupGameConfig {
   type: ActionTypes.SETUP_GAME_CONFIG
   wordLength?: number
   tableWords?: ITableLine
-  currentLine?: number
 }
 
 export interface IEnterWord {
@@ -89,6 +89,11 @@ export interface IDeleteWord {
   currentLine?: number
 }
 
+export interface IRenderedTableLine {
+  type: ActionTypes.RENDERED_TABLE_LINE
+  currentLine?: number
+}
+
 export type IAction =
   | ICleanGame
   | IGetWordOfTheDay
@@ -102,3 +107,4 @@ export type IAction =
   | IEnterWord
   | IDeleteWord
   | ICheckWordError
+  | IRenderedTableLine

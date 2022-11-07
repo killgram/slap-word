@@ -36,6 +36,8 @@ const mapDispatchToProps = (dispatch: Dispatch): IWordOfTheDayTypesProps => ({
     dispatch(gameAction.deleteWord(currentLine)),
   wrongWordRequest: (word: string) =>
     dispatch(settingsAction.wrongWordRequest(word)),
+  renderedTableLine: (currentLine: number) =>
+    dispatch(gameAction.renderedTableLine(currentLine)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(WordOfTheDayScreen)

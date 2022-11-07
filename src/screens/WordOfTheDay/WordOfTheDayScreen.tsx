@@ -35,6 +35,7 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
     checkWordRequest,
     enterWord,
     deleteWord,
+    renderedTableLine,
   } = props
 
   const styles = getStyle()
@@ -99,6 +100,10 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
     wrongWordRequest?.(hitWord)
   }
 
+  const onRenderLine = () => {
+    renderedTableLine?.(currentLine)
+  }
+
   return isLoading ? (
     <View style={styles.indicatorContainer}>
       <SWText isTitle style={styles.indicatorTitle}>
@@ -117,7 +122,11 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
           isLoading={isCheckLoading}
           onExit={() => closeGame?.(false)}
         />
-        <TablePanel wordLength={wordLength} tableWords={tableWords!} />
+        <TablePanel
+          wordLength={wordLength}
+          tableWords={tableWords!}
+          onRenderedLine={onRenderLine}
+        />
       </View>
 
       <View style={styles.sectionBottom}>

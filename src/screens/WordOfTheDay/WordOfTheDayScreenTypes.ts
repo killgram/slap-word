@@ -27,6 +27,7 @@ interface IDispatchToProps {
   enterWord?: (currentLine: number, word: string) => game.IAction
   deleteWord?: (currentLine: number) => game.IAction
   wrongWordRequest?: (word: string) => settings.IAction
+  renderedTableLine?: (currentLine: number) => game.IAction
 }
 
 export type IWordOfTheDayTypesProps = IDispatchToProps & IStateToProps

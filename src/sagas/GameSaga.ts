@@ -23,6 +23,7 @@ export function* getWordOfTheDay(): any {
   try {
     const data = yield call(getWordOfDayService, accessToken)
     yield call(setKeyboard)
+    yield put(gameAction.updateCurrentLine(0))
     yield call(setupGameConfig, GameConfig.WORD_OF_THE_DAY_LENGTH)
     yield put(gameAction.onWordOfTheDaySuccess(data.data.word))
   } catch (e) {

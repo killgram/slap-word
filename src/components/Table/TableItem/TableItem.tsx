@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import getStyle from './TableItemStyles'
 import { SWText } from '@ui-kit/components'
 import { ITableItemProps } from './TableItemTypes'
@@ -10,8 +10,23 @@ import { StyleSheet, View } from 'react-native'
  * @constructor
  */
 const TableItem = (props: ITableItemProps) => {
-  const { value, hit, missing, coincidence } = props
+  const {
+    value,
+    hit,
+    missing,
+    coincidence,
+    onRender,
+    isRendered,
+    lastItem,
+    timeOutOrder,
+  } = props
   const styles = getStyle()
+
+  useEffect(() => {
+    if (!isRendered && value?.length && (hit || missing || coincidence)) {
+      lastItem && onRender()
+    }
+  }, [value])
 
   return (
     <View

@@ -67,7 +67,6 @@ const gameReducer = (
         ...state,
         wordLength: action.wordLength,
         tableWords: action.tableWords,
-        currentLine: 0,
       }
     }
     // update current line
@@ -107,6 +106,21 @@ const gameReducer = (
         enterPosition.name = ''
         newTableWords.reverse()
       }
+      oldState.tableWords = oldTableWords
+      return {
+        ...oldState,
+      }
+    }
+    // set rendered table item
+    case game.ActionTypes.RENDERED_TABLE_LINE: {
+      const { currentLine } = action
+      const oldState = { ...state }
+      const oldTableWords = JSON.parse(JSON.stringify({ ...state.tableWords }))
+      const enterPosition = oldTableWords[currentLine!]
+
+      enterPosition.forEach((item) => {
+        item.isRendered = true
+      })
       oldState.tableWords = oldTableWords
       return {
         ...oldState,
