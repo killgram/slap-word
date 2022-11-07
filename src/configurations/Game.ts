@@ -1,4 +1,6 @@
 export default {
   WORD_OF_THE_DAY_LENGTH: 5,
   ANIMATE_STEP: 150,
+  MIN_WORD_LENGTH: 4,
+  MAX_WORD_LENGTH: 8,
 }
