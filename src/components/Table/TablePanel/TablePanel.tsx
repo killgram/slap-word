@@ -4,6 +4,7 @@ import { ITablePanelProps } from './TablePanelTypes'
 import { View } from 'react-native'
 import { TableItem } from '@components'
 import { keyGenerate, numberToArray } from '@utils'
+import { GameConfig } from '@configurations'
 
 /**
  * @description table panel component
@@ -14,7 +15,7 @@ const TablePanel = (props: ITablePanelProps) => {
   const { wordLength, tableWords, onRenderedLine } = props
   const styles = getStyle()
   const tableMatrix = numberToArray(wordLength + 1)
-  const animateStep = 300
+  const animateStep = GameConfig.ANIMATE_STEP
 
   const renderLine = (line) => {
     return line?.map((item, index) => {
@@ -27,7 +28,7 @@ const TablePanel = (props: ITablePanelProps) => {
           value={item.name}
           isRendered={item.isRendered}
           onRender={onRenderedLine}
-          lastItem={index === line.length - 1}
+          lastItem={index === 0}
           timeOutOrder={animateStep + index * animateStep}
         />
       )

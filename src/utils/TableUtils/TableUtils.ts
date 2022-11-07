@@ -74,13 +74,13 @@ const refactorConfig = (
 ) => {
   for (let i = 0; i < Object.keys(newConfig).length; i++) {
     Object.values(newConfig)[i].map((item) => {
-      if (hitArray.includes(item.name)) {
+      if (item.coincidence || item.missing || item.missing) {
+        return item
+      } else if (hitArray.includes(item.name)) {
         item.hit = true
-      }
-      if (coincidenceArray.includes(item.name)) {
+      } else if (coincidenceArray.includes(item.name)) {
         item.coincidence = true
-      }
-      if (missingArray.includes(item.name)) {
+      } else if (missingArray.includes(item.name)) {
         item.missing = true
       }
       return item
