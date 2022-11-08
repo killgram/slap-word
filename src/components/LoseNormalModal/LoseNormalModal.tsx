@@ -11,7 +11,14 @@ import { ActivityIndicator, TouchableOpacity, View } from 'react-native'
  * @constructor
  */
 const LoseNormalModal = (props: ILoseNormalModalProps) => {
-  const { visible, closeHandler, hitWord, isPostLoading, onPostWord } = props
+  const {
+    visible,
+    closeHandler,
+    hitWord,
+    isPostLoading,
+    onPostWord,
+    onPlayAgain,
+  } = props
   const styles = getStyle()
 
   /**
@@ -52,6 +59,14 @@ const LoseNormalModal = (props: ILoseNormalModalProps) => {
         >
           <SWText style={styles.incTitle}>Слово не правильное! 😱</SWText>
         </TouchableOpacity>
+      )}
+
+      {onPlayAgain && (
+        <SWButton
+          style={styles.btn}
+          title="Сыграть еще раз"
+          onPress={onPlayAgain}
+        />
       )}
 
       <SWButton style={styles.btn} title="Закрыть" onPress={closeHandler} />

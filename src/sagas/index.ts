@@ -6,7 +6,12 @@ import { logout } from './LogoutSaga'
 import { getSupport } from './SupportSaga'
 import { getAboutApp } from './AboutAppSaga'
 import { getTopScore } from './TopScoreSaga'
-import { getWordOfTheDay, checkWordRequest, closeGame } from './GameSaga'
+import {
+  getWordOfTheDay,
+  checkWordRequest,
+  closeGame,
+  getWord,
+} from './GameSaga'
 import { wrongWordRequest } from './WrongWordSaga'
 
 /**
@@ -26,6 +31,7 @@ export default function* root(): any {
   yield all([
     takeLatest(settings.ActionTypes.WRONG_WORD_REQUEST, wrongWordRequest),
   ])
+  yield all([takeLatest(game.ActionTypes.GET_WORD_REQUEST, getWord)])
 }
 
 export type RootSaga = ReturnType<typeof root>

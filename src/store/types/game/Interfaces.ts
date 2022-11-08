@@ -94,6 +94,16 @@ export interface IRenderedTableLine {
   currentLine?: number
 }
 
+export interface IGetWordRequest {
+  type: ActionTypes.GET_WORD_REQUEST
+  length?: string
+}
+
+export interface IOnGetWordSuccess {
+  type: ActionTypes.ON_GET_WORD_SUCCESS
+  word?: string
+}
+
 export type IAction =
   | ICleanGame
   | IGetWordOfTheDay
@@ -108,3 +118,5 @@ export type IAction =
   | IDeleteWord
   | ICheckWordError
   | IRenderedTableLine
+  | IGetWordRequest
+  | IOnGetWordSuccess

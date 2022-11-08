@@ -28,7 +28,7 @@ const TablePanel = (props: ITablePanelProps) => {
           value={item.name}
           isRendered={item.isRendered}
           onRender={onRenderedLine}
-          lastItem={index === 0}
+          lastItem={index === line.length - 3}
           timeOutOrder={animateStep + index * animateStep}
         />
       )

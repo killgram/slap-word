@@ -4,4 +4,5 @@ export interface ILoseNormalModalProps {
   hitWord: string
   isPostLoading?: boolean
   onPostWord?: () => void
+  onPlayAgain?: () => void
 }

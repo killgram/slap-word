@@ -145,3 +145,25 @@ export function renderedTableLine(currentLine: number): game.IAction {
     currentLine,
   }
 }
+
+/**
+ * @param {string} length
+ * @return {game.IAction}
+ */
+export function getWordRequest(length: string): game.IAction {
+  return {
+    type: game.ActionTypes.GET_WORD_REQUEST,
+    length,
+  }
+}
+
+/**
+ * @param {string} word
+ * @return {game.IAction}
+ */
+export function onGetWordSuccess(word: string): game.IAction {
+  return {
+    type: game.ActionTypes.ON_GET_WORD_SUCCESS,
+    word,
+  }
+}

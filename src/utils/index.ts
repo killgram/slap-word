@@ -34,6 +34,7 @@ import { generateKeyboardConfig, updateKeyboardConfig } from './KeyboardUtils'
 import { numberToArray } from './NumberToArray'
 import { generateTableConfig, updateTableConfig } from './TableUtils'
 import { getInputWord } from './GetInputWord'
+import { countForm } from './CountForm'
 
 export {
   width,
@@ -65,6 +66,7 @@ export {
   playWrongSound,
   updateKeyboardConfig,
   updateTableConfig,
+  countForm,
 }
 
 export type {

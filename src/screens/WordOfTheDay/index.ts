@@ -38,6 +38,8 @@ const mapDispatchToProps = (dispatch: Dispatch): IWordOfTheDayTypesProps => ({
     dispatch(settingsAction.wrongWordRequest(word)),
   renderedTableLine: (currentLine: number) =>
     dispatch(gameAction.renderedTableLine(currentLine)),
+  getWordRequest: (length: string) =>
+    dispatch(gameAction.getWordRequest(length)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(WordOfTheDayScreen)

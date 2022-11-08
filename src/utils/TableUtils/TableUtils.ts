@@ -37,23 +37,18 @@ const updateTableConfig = (
   hitWord: string,
   config: ITableLine,
 ) => {
-  const hitArray = word.split('').filter((item, index) => {
-    return hitWord[index] === word[index]
-  })
-  const missingArray = word.split('').filter((item) => {
-    return !hitWord.includes(item)
-  })
-  const coincidenceArray = word.split('').filter((item) => {
-    return hitWord.includes(item) && !hitArray.includes(item)
+  const newArray = word.split('').map((item, index) => {
+    if (hitWord[index] === word[index]) {
+      return { hit: true }
+    } else if (hitWord[index] !== word[index] && hitWord.includes(item)) {
+      return { coincidence: true }
+    } else if (!hitWord.includes(item)) {
+      return { missing: true }
+    }
   })
 
   let newConfig = JSON.parse(JSON.stringify(config))
-  newConfig = refactorConfig(
-    newConfig,
-    hitArray,
-    coincidenceArray,
-    missingArray,
-  )
+  newConfig = refactorConfig(newConfig, newArray)
 
   return newConfig
 }
@@ -61,26 +56,21 @@ const updateTableConfig = (
 /**
  * @description refactor config with params
  * @param {ITableLine} newConfig
- * @param {Array<string>} hitArray
- * @param {Array<string>} coincidenceArray
- * @param {Array<string>} missingArray
+ * @param {Array<any>} newArray
  * @return {ITableLine}
  */
-const refactorConfig = (
-  newConfig: ITableLine,
-  hitArray: Array<string>,
-  coincidenceArray: Array<string>,
-  missingArray: Array<string>,
-) => {
+const refactorConfig = (newConfig: ITableLine, newArray: Array<any>) => {
   for (let i = 0; i < Object.keys(newConfig).length; i++) {
-    Object.values(newConfig)[i].map((item) => {
+    Object.values(newConfig)[i].map((item, index) => {
       if (item.coincidence || item.missing || item.missing) {
         return item
-      } else if (hitArray.includes(item.name)) {
+      } else if (item.name.length === 0) {
+        return item
+      } else if (newArray[index].hit) {
         item.hit = true
-      } else if (coincidenceArray.includes(item.name)) {
+      } else if (newArray[index].coincidence) {
         item.coincidence = true
-      } else if (missingArray.includes(item.name)) {
+      } else if (newArray[index].missing) {
         item.missing = true
       }
       return item

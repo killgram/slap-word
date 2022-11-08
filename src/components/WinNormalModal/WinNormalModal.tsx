@@ -10,7 +10,7 @@ import { getThemeColor } from '@utils'
  * @constructor
  */
 const WinNormalModal = (props: IWinNormalModalProps) => {
-  const { visible, closeHandler } = props
+  const { visible, closeHandler, onPlayAgain } = props
   const styles = getStyle()
 
   return (
@@ -23,6 +23,14 @@ const WinNormalModal = (props: IWinNormalModalProps) => {
       <SWText isTitle inTheCenter style={styles.topTitle}>
         Поздравляем, Вы выиграли!
       </SWText>
+
+      {onPlayAgain && (
+        <SWButton
+          style={styles.btn}
+          title="Сыграть еще раз"
+          onPress={onPlayAgain}
+        />
+      )}
 
       <SWButton title="Закрыть" style={styles.btn} onPress={closeHandler} />
     </SWCenterModal>

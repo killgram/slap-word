@@ -28,7 +28,7 @@ const GameChooseScreen = (props: IGameChooseScreenTypesProps) => {
       <SWButton
         isDisabled={!gamePossibility(wordOfDayTime)}
         title="Слово дня"
-        onPress={Navigate.toWordOfTheDayScreen}
+        onPress={() => Navigate.toWordOfTheDayScreen()}
       />
 
       <SWText inTheCenter style={styles.title}>

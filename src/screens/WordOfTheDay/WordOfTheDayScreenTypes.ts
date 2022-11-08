@@ -4,6 +4,11 @@ import { IKeyboardLine, ITableLine } from '@store/types/game/Interfaces'
 
 interface IStateToProps {
   navigation?: NavigationType
+  route?: {
+    params: {
+      wordLength: string
+    }
+  }
   keyboardWords?: IKeyboardLine
   isLoading?: boolean
   hitWord?: string
@@ -28,6 +33,7 @@ interface IDispatchToProps {
   deleteWord?: (currentLine: number) => game.IAction
   wrongWordRequest?: (word: string) => settings.IAction
   renderedTableLine?: (currentLine: number) => game.IAction
+  getWordRequest?: (length: string) => game.IAction
 }
 
 export type IWordOfTheDayTypesProps = IDispatchToProps & IStateToProps

@@ -85,10 +85,14 @@ export const toGameChooseScreen = () => {
 
 /**
  * @description to WordOfTheDayScreen
+ * @param {string} length
  */
-export const toWordOfTheDayScreen = () => {
+export const toWordOfTheDayScreen = (length?: string) => {
   NavigationService.navigate('AppStack', {
     screen: 'WordOfTheDayScreen',
+    params: {
+      wordLength: length,
+    },
   })
 }
 

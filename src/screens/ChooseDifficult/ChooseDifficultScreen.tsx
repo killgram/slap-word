@@ -2,10 +2,11 @@ import React, { useLayoutEffect, useState } from 'react'
 import { IChooseDifficultTypesProps } from './ChooseDifficultScreenTypes'
 import getStyle from './ChooseDifficultScreenStyles'
 import { SWButton, SWContainer } from '@ui-kit/components'
-import { keyGenerate, numberToArray } from '@utils'
+import { countForm, keyGenerate, numberToArray } from '@utils'
 import { GameConfig } from '@configurations'
 import { DifficultItem } from '@components'
 import { View } from 'react-native'
+import { Navigate } from '@navigators'
 
 /**
  * @description ChooseDifficult
@@ -44,26 +45,19 @@ const ChooseDifficult = (props: IChooseDifficultTypesProps) => {
     })
   }
 
-  /**
-   * @description calc 'word' ending
-   * @return {string}
-   */
-  const calcEndWord = () => {
-    let result = 'слов'
-    if (difficult === 1) {
-      result = 'слово'
-    } else if (difficult > 1 && difficult < 5) {
-      result = 'слова'
-    }
-    return result
-  }
-
   return (
     <SWContainer isTransparentHeader>
       <View style={styles.topSection}>{renderItems()}</View>
 
       <View style={styles.bottomSection}>
-        <SWButton title={`Начать игру (${difficult} ${calcEndWord()})`} />
+        <SWButton
+          title={`Начать игру (${difficult} ${countForm(difficult, [
+            'буква',
+            'буквы',
+            'букв',
+          ])})`}
+          onPress={() => Navigate.toWordOfTheDayScreen(String(difficult))}
+        />
       </View>
     </SWContainer>
   )

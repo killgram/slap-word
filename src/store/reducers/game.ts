@@ -118,12 +118,27 @@ const gameReducer = (
       const oldTableWords = JSON.parse(JSON.stringify({ ...state.tableWords }))
       const enterPosition = oldTableWords[currentLine!]
 
-      enterPosition.forEach((item) => {
+      enterPosition?.forEach((item) => {
         item.isRendered = true
       })
       oldState.tableWords = oldTableWords
       return {
         ...oldState,
+      }
+    }
+    // get word
+    case game.ActionTypes.GET_WORD_REQUEST: {
+      return {
+        ...state,
+        isLoading: true,
+      }
+    }
+    case game.ActionTypes.ON_GET_WORD_SUCCESS: {
+      const oldState = { ...state }
+      delete oldState.isLoading
+      return {
+        ...oldState,
+        word: action.word,
       }
     }
 
