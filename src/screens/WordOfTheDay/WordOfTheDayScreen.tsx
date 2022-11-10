@@ -42,7 +42,7 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
   const possibleWordLength = route?.params?.wordLength
   const styles = getStyle()
   const inputWord = getInputWord(tableWords?.[currentLine])
-  const [isWinModalVisible, setIsWinModalVisible] = useState(true)
+  const [isWinModalVisible, setIsWinModalVisible] = useState(false)
   const [isLoseModalVisible, setIsLoseModalVisible] = useState(false)
 
   useLayoutEffect(() => {

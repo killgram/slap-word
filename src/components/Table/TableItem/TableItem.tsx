@@ -6,6 +6,7 @@ import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withDelay,
+  runOnJS,
 } from 'react-native-reanimated'
 import { getThemeColor } from '@utils'
 
@@ -72,7 +73,7 @@ const TableItem = (props: ITableItemProps) => {
     rotation.value = withDelay(
       timeOutOrder,
       withSpring(180, { stiffness: 30, restSpeedThreshold: 4 }, () => {
-        lastItem && onRender()
+        lastItem && runOnJS(onRender)()
       }),
     )
   }
