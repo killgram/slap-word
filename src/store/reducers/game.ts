@@ -128,10 +128,7 @@ const gameReducer = (
     }
     // get word
     case game.ActionTypes.GET_WORD_REQUEST: {
-      const oldState = { ...state }
-      delete oldState.isHit
       return {
-        ...oldState,
         isLoading: true,
       }
     }
