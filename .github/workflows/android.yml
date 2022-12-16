@@ -3,21 +3,28 @@ name: build_artifacts_on_android
 on:
   pull_request:
     branches: [ "main" ]
-  push:
-    branches:
-      - master
-
 
 jobs:
-  build_apk_aab:
-    name: Build release artifacts
-    runs-on: ubuntu-20.04
+  install-and-test:
+    runs-on: ubuntu-latest
     steps:
-      - name: Build release APK
+      - uses: actions/checkout@v2
+      - name: Install npm dependencies
         run: |
-          cd android && ./gradlew clean && ./gradlew assembleRelease
-      - name: Upload APK
-        uses: actions/upload-artifact@v2
+          npm install
+  build-android:
+    needs: install-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install npm dependencies
+        run: |
+          npm install
+      - name: Build Android Release
+        run: |
+          cd android && ./gradlew assembleRelease
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v1
         with:
           name: app-release.apk
-          path: android/app/build/outputs/apk/release/app-release.apk
+          path: android/app/build/outputs/apk/release/
