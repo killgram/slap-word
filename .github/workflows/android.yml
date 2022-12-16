@@ -6,6 +6,8 @@ on:
   push:
     branches:
       - master
+
+
 jobs:
   build_apk_aab:
     name: Build release artifacts
@@ -13,7 +15,7 @@ jobs:
     steps:
       - name: Build release APK
         run: |
-          cd android && ./gradlew clean ./gradlew assembleRelease
+          cd android && ./gradlew clean && ./gradlew assembleRelease
       - name: Upload APK
         uses: actions/upload-artifact@v2
         with:
