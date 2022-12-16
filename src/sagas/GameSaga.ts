@@ -137,7 +137,7 @@ export function* closeGame(action: ICloseGame): any {
       yield put(settingsAction.updateWordOfDayLastTime())
     }
     yield put(gameAction.cleanGame())
-    yield call(Navigate.toAppStack)
+    yield call(Navigate.toMainMenuScreen)
   } catch (e) {
     yield call(errorToast, 'Что-то пошло не так 😔')
   }

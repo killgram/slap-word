@@ -113,3 +113,12 @@ export const toTournamentScreen = () => {
     screen: 'TournamentScreen',
   })
 }
+
+/**
+ * @description to MainMenuScreen
+ */
+export const toMainMenuScreen = () => {
+  NavigationService.navigate('AppStack', {
+    screen: 'MainMenuScreen',
+  })
+}

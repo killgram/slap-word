@@ -64,4 +64,4 @@ const GameHeader = (props: IGameHeaderTypes) => {
   )
 }
 
-export default GameHeader
+export default React.memo(GameHeader)
