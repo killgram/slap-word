@@ -6,6 +6,8 @@ on:
   push:
     branches:
       - master
+
+
 jobs:
   build_apk_aab:
     name: Build release artifacts
