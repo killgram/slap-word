@@ -1,15 +1,21 @@
 import axios from 'axios'
-import { ApiList, Domains, R3D3ApiList } from '@configurations'
-import { getAccessTokenConfig } from '@utils'
+import { Domains, R3D3ApiList } from '@configurations'
 
 /**
  * @description get support data
- * @param {string} token
  */
-const getSupportService = (token: string) => {
-  const url = `${Domains.getDomain()}${ApiList.SUPPORT}`
-  const config = getAccessTokenConfig(token)
-  return axios.get(url, config)
+const getSupportService = async () => {
+  let data = {}
+  const url = `${Domains.getR3D3InfoDomain()}${R3D3ApiList.SUPPORT}`
+  const res = await axios.get(url)
+  res.data.list.forEach((item) => {
+    if (item.email) {
+      data = {
+        email: item.email,
+      }
+    }
+  })
+  return data
 }
 
 /**
