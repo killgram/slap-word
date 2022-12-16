@@ -1,3 +1,3 @@
 ENV=development
-R3D3INFODOMAIN=https:/$()/r3d3-info.onrender.com
+R3D3INFODOMAIN=https:/$()/r3d3.onrender.com
 DOMAIN=https:/$()/sw-back.onrender.com

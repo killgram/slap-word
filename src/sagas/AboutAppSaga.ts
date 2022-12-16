@@ -12,7 +12,7 @@ export function* getAboutApp(): any {
 
   try {
     const data = yield call(getAboutAppService, accessToken)
-    const { appGit, authorGit, author, name, appVersion } = data.data[0]
+    const { appGit, authorGit, author, name, appVersion } = data
     yield put(
       aboutAppAction.onAboutAppSuccess(
         appGit,

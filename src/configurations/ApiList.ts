@@ -15,4 +15,5 @@ export enum ApiList {
 }
 export enum R3D3ApiList {
   STATUS = '/getSupportInfo',
+  SUPPORT = '/common/getAppPersonalize',
 }
