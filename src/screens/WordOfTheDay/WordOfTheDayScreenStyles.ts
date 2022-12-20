@@ -14,11 +14,9 @@ interface IStyles {
 export default function getStyle(): IStyles {
   return StyleSheet.create({
     sectionTop: {
-      // backgroundColor: 'purple',
       flex: 0.75,
     },
     sectionBottom: {
-      // backgroundColor: 'pink',
       flex: 0.25,
       marginBottom: height(30),
     },
