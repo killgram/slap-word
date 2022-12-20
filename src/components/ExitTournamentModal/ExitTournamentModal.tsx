@@ -1,6 +1,6 @@
 import React from 'react'
 import getStyle from './ExitTournamentModalStyles'
-import { SWButton, SWCenterModal, SWIcon, SWText } from '@ui-kit/components'
+import { SWButton, SWCenterModal, SWText } from '@ui-kit/components'
 import { IExitTournamentModalProps } from './ExitTournamentModalTypes'
 import { getThemeColor } from '@utils'
 import { StyleSheet, View } from 'react-native'
@@ -19,14 +19,16 @@ const ExitTournamentModal = (props: IExitTournamentModalProps) => {
       <SWText isTitle inTheCenter style={styles.topTitle}>
         Уверены, что хотите выйти?
       </SWText>
-      <SWText
-        isTitle
-        inTheCenter
-        color={getThemeColor('LINK_TEXT')}
-        style={styles.topTitle}
-      >
-        {`Текущий счет: ${score}`}
-      </SWText>
+      {score !== '0' && (
+        <SWText
+          isTitle
+          inTheCenter
+          color={getThemeColor('LINK_TEXT')}
+          style={styles.topTitle}
+        >
+          {`Текущий счет: ${score}`}
+        </SWText>
+      )}
 
       <View style={styles.btnBox}>
         <SWButton
