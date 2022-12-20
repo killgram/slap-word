@@ -7,6 +7,7 @@ import { getWordOfDayService } from './GetWordOfDayService'
 import { checkWordService } from './CheckWordService'
 import { postWrongWordService } from './PostWrongWordService'
 import { getWordService } from './GetWordService'
+import { updateScoreService } from './UpdateScoreService'
 
 export {
   getServerWorkStatus,
@@ -20,4 +21,5 @@ export {
   checkWordService,
   postWrongWordService,
   getWordService,
+  updateScoreService,
 }

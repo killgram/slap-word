@@ -100,3 +100,15 @@ export function signUpRequest(login: string, password: string): app.IAction {
     password,
   }
 }
+
+/**
+ *
+ * @param {number} maxScore
+ * @return {app.IAction}
+ */
+export function updateMaxScore(maxScore: number): app.IAction {
+  return {
+    type: app.ActionTypes.UPDATE_MAX_SCORE,
+    maxScore,
+  }
+}

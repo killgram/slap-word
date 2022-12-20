@@ -57,6 +57,12 @@ const appReducer = (
         isLoading: true,
       }
     }
+    case app.ActionTypes.UPDATE_MAX_SCORE: {
+      return {
+        ...state,
+        maxScore: action.maxScore,
+      }
+    }
 
     default: {
       return state

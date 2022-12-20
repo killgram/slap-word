@@ -18,6 +18,11 @@ export interface ISetTournamentConfig {
   wordLength?: string
 }
 
+export interface IUpdateScore {
+  type: ActionTypes.UPDATE_SCORE
+  score?: number
+}
+
 export interface IUpdateTournamentConfig {
   type: ActionTypes.UPDATE_TOURNAMENT_CONFIG
 }
@@ -26,3 +31,4 @@ export type IAction =
   | ICleanTournament
   | ISetTournamentConfig
   | IUpdateTournamentConfig
+  | IUpdateScore

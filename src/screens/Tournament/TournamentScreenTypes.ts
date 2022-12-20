@@ -38,6 +38,7 @@ interface IDispatchToProps {
     wordLength: string,
   ) => tournament.IAction
   cleanTournament?: () => tournament.IAction
+  updateScore?: (score: number) => tournament.IAction
 }
 
 export type ITournamentScreenTypesProps = IDispatchToProps & IStateToProps

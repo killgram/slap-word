@@ -43,6 +43,7 @@ const TournamentScreen = (props: ITournamentScreenTypesProps) => {
     score,
     round,
     isDone,
+    updateScore,
   } = props
   const styles = getStyle()
 
@@ -100,6 +101,7 @@ const TournamentScreen = (props: ITournamentScreenTypesProps) => {
    * @description close modals handler
    */
   const handleCloseModal = () => {
+    score !== '0' && updateScore?.(Number(score))
     setIsWinModalVisible(false)
     setIsLoseModalVisible(false)
     setIsExitModalVisible(false)
@@ -171,7 +173,7 @@ const TournamentScreen = (props: ITournamentScreenTypesProps) => {
         closeHandler={handleCloseModal}
       />
       <LoseNormalModal
-        visible={isLoseModalVisible}
+        visible={!isLoseModalVisible}
         closeHandler={handleCloseModal}
         hitWord={hitWord}
         isPostLoading={isPostLoading}

@@ -21,7 +21,7 @@ import {
   getWord,
 } from './GameSaga'
 import { wrongWordRequest } from './WrongWordSaga'
-import { setTournamentConfig } from './TournamentSaga'
+import { setTournamentConfig, updateScore } from './TournamentSaga'
 
 /**
  * @description initialize root saga
@@ -47,6 +47,7 @@ export default function* root(): any {
       setTournamentConfig,
     ),
   ])
+  yield all([takeLatest(tournament.ActionTypes.UPDATE_SCORE, updateScore)])
 }
 
 export type RootSaga = ReturnType<typeof root>

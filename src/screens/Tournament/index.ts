@@ -46,6 +46,7 @@ const mapDispatchToProps = (
   setTournamentConfig: (score: string, round: number, wordLength: string) =>
     dispatch(tournamentAction.setTournamentConfig(score, round, wordLength)),
   cleanTournament: () => dispatch(tournamentAction.cleanTournament()),
+  updateScore: (score: number) => dispatch(tournamentAction.updateScore(score)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TournamentScreen)

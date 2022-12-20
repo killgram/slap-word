@@ -52,6 +52,11 @@ export interface ISignUpRequest {
   password?: string
 }
 
+export interface IUpdateMaxScore {
+  type: ActionTypes.UPDATE_MAX_SCORE
+  maxScore?: number
+}
+
 export type IAction =
   | IStartup
   | ICleanApp
@@ -61,3 +66,4 @@ export type IAction =
   | ILoginError
   | ILogout
   | ISignUpRequest
+  | IUpdateMaxScore

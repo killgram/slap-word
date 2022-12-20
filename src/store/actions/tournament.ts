@@ -28,3 +28,14 @@ export function cleanTournament(): tournament.IAction {
     type: tournament.ActionTypes.CLEAN_TOURNAMENT,
   }
 }
+
+/**
+ * @param {number} score
+ * @return {tournament.IAction}
+ */
+export function updateScore(score: number): tournament.IAction {
+  return {
+    type: tournament.ActionTypes.UPDATE_SCORE,
+    score,
+  }
+}
