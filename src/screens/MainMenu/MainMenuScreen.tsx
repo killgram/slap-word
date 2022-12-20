@@ -82,7 +82,6 @@ const MainMenuScreen = (props: IMainMenuScreenTypesProps) => {
         onPress={Navigate.toSupportScreen}
         style={styles.controlBtn}
       />
-      <SWText>{process.env.NODE_ENV}</SWText>
       <View style={styles.exitBtnContainer}>
         <SWButton title="Выйти" onPress={onCloseModal} />
       </View>
