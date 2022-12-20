@@ -10,6 +10,7 @@ import {
   TablePanel,
   WinNormalModal,
   TournamentHeader,
+  ExitTournamentModal,
 } from '@components'
 import { TournamentConfig } from '@configurations'
 
@@ -48,6 +49,7 @@ const TournamentScreen = (props: ITournamentScreenTypesProps) => {
   const inputWord = getInputWord(tableWords?.[currentLine])
   const [isWinModalVisible, setIsWinModalVisible] = useState(false)
   const [isLoseModalVisible, setIsLoseModalVisible] = useState(false)
+  const [isExitModalVisible, setIsExitModalVisible] = useState(false)
 
   useLayoutEffect(() => {
     navigation?.setOptions({
@@ -100,6 +102,7 @@ const TournamentScreen = (props: ITournamentScreenTypesProps) => {
   const handleCloseModal = () => {
     setIsWinModalVisible(false)
     setIsLoseModalVisible(false)
+    setIsExitModalVisible(false)
     closeGame?.(!wordLengthTournament)
     cleanTournament?.()
   }
@@ -136,10 +139,7 @@ const TournamentScreen = (props: ITournamentScreenTypesProps) => {
           round={String(round)}
           score={score!}
           isLoading={isCheckLoading}
-          onExit={() => {
-            closeGame?.(false)
-            cleanTournament?.()
-          }}
+          onExit={() => setIsExitModalVisible(true)}
         />
         <TablePanel
           wordLength={wordLength}
@@ -157,6 +157,13 @@ const TournamentScreen = (props: ITournamentScreenTypesProps) => {
           isCheckPossible={inputWord.length < hitWord.length}
         />
       </View>
+
+      <ExitTournamentModal
+        visible={isExitModalVisible}
+        closeHandler={handleCloseModal}
+        closeModalHandler={() => setIsExitModalVisible(false)}
+        score={score!}
+      />
 
       <WinNormalModal
         visible={isWinModalVisible}

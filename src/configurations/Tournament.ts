@@ -6,4 +6,5 @@ export default {
     round: 1,
     wordLength: '4',
   },
+  ONE_WORD_IN_SCORE: 10,
 }
