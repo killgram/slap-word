@@ -4,6 +4,7 @@ import { ApiList, R3D3ApiList } from './ApiList'
 import { ABC } from './Keyboard'
 import GameConfig from './Game'
 import TournamentConfig from './Tournament'
+import { RulesData } from './RulesData'
 
 export {
   Constants,
@@ -13,4 +14,5 @@ export {
   ABC,
   GameConfig,
   TournamentConfig,
+  RulesData,
 }
