@@ -28,6 +28,7 @@ const AppStack = () => {
       screenOptions={{
         ...defaultHeaderStyle,
         cardStyleInterpolator: CardStyleInterpolators.forFadeFromCenter,
+        gestureEnabled: false,
       }}
     >
       <Stack.Screen name="MainMenuScreen" component={MainMenuScreen} />
