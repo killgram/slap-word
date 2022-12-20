@@ -8,9 +8,9 @@ import {
   KeyboardPanel,
   LoseNormalModal,
   TablePanel,
-  WinNormalModal,
   TournamentHeader,
   ExitTournamentModal,
+  WinTournamentModal,
 } from '@components'
 import { TournamentConfig } from '@configurations'
 
@@ -123,6 +123,12 @@ const TournamentScreen = (props: ITournamentScreenTypesProps) => {
     renderedTableLine?.(currentLine)
   }
 
+  const handleGoNextRound = () => {
+    setIsWinModalVisible(false)
+    setIsLoseModalVisible(false)
+    setIsExitModalVisible(false)
+  }
+
   return isLoading ? (
     <View style={styles.indicatorContainer}>
       <SWText isTitle style={styles.indicatorTitle}>
@@ -167,13 +173,18 @@ const TournamentScreen = (props: ITournamentScreenTypesProps) => {
         score={score!}
       />
 
-      <WinNormalModal
+      <WinTournamentModal
         visible={isWinModalVisible}
         hitWord={hitWord}
-        closeHandler={handleCloseModal}
+        score={Number(score)}
+        newScore={
+          Number(score) +
+          TournamentConfig.ONE_WORD_IN_SCORE * Number(wordLengthTournament)
+        }
+        closeHandler={handleGoNextRound}
       />
       <LoseNormalModal
-        visible={!isLoseModalVisible}
+        visible={isLoseModalVisible}
         closeHandler={handleCloseModal}
         hitWord={hitWord}
         isPostLoading={isPostLoading}
