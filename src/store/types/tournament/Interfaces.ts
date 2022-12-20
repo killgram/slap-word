@@ -3,7 +3,6 @@ import { ActionTypes } from './ActionTypes'
 export interface IInitialState {
   score?: string
   round?: number
-  isDone?: boolean
   wordLength?: string
 }
 

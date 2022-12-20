@@ -16,7 +16,6 @@ interface IStateToProps {
   score?: string
   round?: number
   wordLengthTournament?: string
-  isDone?: boolean
 }
 
 export interface IState {
@@ -39,6 +38,7 @@ interface IDispatchToProps {
   ) => tournament.IAction
   cleanTournament?: () => tournament.IAction
   updateScore?: (score: number) => tournament.IAction
+  updateTournamentConfig?: () => tournament.IAction
 }
 
 export type ITournamentScreenTypesProps = IDispatchToProps & IStateToProps

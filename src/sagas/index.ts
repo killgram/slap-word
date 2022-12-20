@@ -21,7 +21,11 @@ import {
   getWord,
 } from './GameSaga'
 import { wrongWordRequest } from './WrongWordSaga'
-import { setTournamentConfig, updateScore } from './TournamentSaga'
+import {
+  setTournamentConfig,
+  updateScore,
+  updateTournamentConfig,
+} from './TournamentSaga'
 
 /**
  * @description initialize root saga
@@ -48,6 +52,12 @@ export default function* root(): any {
     ),
   ])
   yield all([takeLatest(tournament.ActionTypes.UPDATE_SCORE, updateScore)])
+  yield all([
+    takeLatest(
+      tournament.ActionTypes.UPDATE_TOURNAMENT_CONFIG,
+      updateTournamentConfig,
+    ),
+  ])
 }
 
 export type RootSaga = ReturnType<typeof root>

@@ -1,11 +1,12 @@
 import { call, put, select } from 'redux-saga/effects'
-import { appAction, gameAction } from '@store/actions'
+import { appAction, gameAction, tournamentAction } from '@store/actions'
 import {
   ISetTournamentConfig,
   IUpdateScore,
 } from '@store/types/tournament/Interfaces'
 import { updateScoreService } from '@services'
-import { errorToast, successToast } from '@utils'
+import { errorToast, getRandomRangeNumber, successToast } from '@utils'
+import { TournamentConfig } from '@configurations'
 
 /**
  * @description set tournament config saga
@@ -37,5 +38,33 @@ export function* updateScore(action: IUpdateScore): any {
     }
   } catch (e) {
     yield call(errorToast, 'Неудалось обновить счет 😔')
+  }
+}
+
+/**
+ * @description update tournament config saga
+ */
+export function* updateTournamentConfig(): any {
+  const state = yield select()
+  const score = state?.tournament?.score
+  const round = state?.tournament?.round
+  const wordLength = state?.tournament?.wordLength
+  try {
+    const newScore =
+      Number(score) + TournamentConfig.ONE_WORD_IN_SCORE * Number(wordLength)
+    const newRound = Number(round) + 1
+    const newWordLength = getRandomRangeNumber(
+      TournamentConfig.MIN_WORD_LENGTH,
+      TournamentConfig.MAX_WORD_LENGTH,
+    )
+    yield put(
+      tournamentAction.setTournamentConfig(
+        String(newScore),
+        newRound,
+        String(newWordLength),
+      ),
+    )
+  } catch (e) {
+    yield call(errorToast, 'Неудалось перейти в следующий раунд 😔')
   }
 }

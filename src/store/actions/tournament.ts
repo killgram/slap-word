@@ -39,3 +39,12 @@ export function updateScore(score: number): tournament.IAction {
     score,
   }
 }
+
+/**
+ * @return {tournament.IAction}
+ */
+export function updateTournamentConfig(): tournament.IAction {
+  return {
+    type: tournament.ActionTypes.UPDATE_TOURNAMENT_CONFIG,
+  }
+}

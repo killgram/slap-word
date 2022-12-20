@@ -35,6 +35,7 @@ import { numberToArray } from './NumberToArray'
 import { generateTableConfig, updateTableConfig } from './TableUtils'
 import { getInputWord } from './GetInputWord'
 import { countForm } from './CountForm'
+import { getRandomRangeNumber } from './GetRandomRangeNumber'
 
 export {
   width,
@@ -67,6 +68,7 @@ export {
   updateKeyboardConfig,
   updateTableConfig,
   countForm,
+  getRandomRangeNumber,
 }
 
 export type {

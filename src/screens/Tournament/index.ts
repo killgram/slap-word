@@ -22,7 +22,6 @@ const mapStateToProps = (state: IState): ITournamentScreenTypesProps => ({
   score: state?.tournament?.score,
   round: state?.tournament?.round,
   wordLengthTournament: state?.tournament?.wordLength,
-  isDone: state?.tournament?.isDone,
 })
 
 /**
@@ -47,6 +46,8 @@ const mapDispatchToProps = (
     dispatch(tournamentAction.setTournamentConfig(score, round, wordLength)),
   cleanTournament: () => dispatch(tournamentAction.cleanTournament()),
   updateScore: (score: number) => dispatch(tournamentAction.updateScore(score)),
+  updateTournamentConfig: () =>
+    dispatch(tournamentAction.updateTournamentConfig()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TournamentScreen)

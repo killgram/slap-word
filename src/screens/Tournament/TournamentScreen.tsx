@@ -42,8 +42,8 @@ const TournamentScreen = (props: ITournamentScreenTypesProps) => {
     wordLengthTournament,
     score,
     round,
-    isDone,
     updateScore,
+    updateTournamentConfig,
   } = props
   const styles = getStyle()
 
@@ -127,6 +127,7 @@ const TournamentScreen = (props: ITournamentScreenTypesProps) => {
     setIsWinModalVisible(false)
     setIsLoseModalVisible(false)
     setIsExitModalVisible(false)
+    updateTournamentConfig?.()
   }
 
   return isLoading ? (
