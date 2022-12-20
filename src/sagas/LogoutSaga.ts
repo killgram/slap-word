@@ -5,6 +5,7 @@ import {
   supportAction,
   aboutAppAction,
   topScoreAction,
+  tournamentAction,
 } from '@store/actions'
 import { Navigate } from '@navigators'
 
@@ -17,6 +18,7 @@ export function* logout(): any {
   yield put(supportAction.cleanSupport())
   yield put(aboutAppAction.cleanAboutApp())
   yield put(topScoreAction.cleanTopScore())
+  yield put(tournamentAction.cleanTournament())
 
   yield call(Navigate.toAuthStack)
 }

@@ -11,6 +11,7 @@ import {
   TablePanel,
   WinNormalModal,
 } from '@components'
+import { TournamentConfig } from '@configurations'
 
 /**
  * @description TournamentScreen
@@ -35,10 +36,14 @@ const TournamentScreen = (props: ITournamentScreenTypesProps) => {
     enterWord,
     deleteWord,
     renderedTableLine,
-    getWordRequest,
+    setTournamentConfig,
+    cleanTournament,
+    wordLengthTournament,
+    score,
+    round,
+    isDone,
   } = props
   const styles = getStyle()
-  const possibleWordLength = '5'
 
   const inputWord = getInputWord(tableWords?.[currentLine])
   const [isWinModalVisible, setIsWinModalVisible] = useState(false)
@@ -51,10 +56,6 @@ const TournamentScreen = (props: ITournamentScreenTypesProps) => {
     })
   }, [])
 
-  useEffect(() => {
-    getWordRequest?.(possibleWordLength)
-  }, [])
-
   /**
    * @description handle input word in line
    * @param {string} word
@@ -64,17 +65,25 @@ const TournamentScreen = (props: ITournamentScreenTypesProps) => {
   }
 
   /**
-   * @description handle delete word from line
-   */
-  const handleDeleteWord = () => {
-    inputWord.length !== 0 && deleteWord?.(currentLine)
-  }
-
-  /**
    * @description check word
    */
   const handlePressWord = () => {
     checkWordRequest?.(inputWord)
+  }
+
+  useEffect(() => {
+    setTournamentConfig?.(
+      TournamentConfig.BASE_TOURNAMENT_CONFIG.score,
+      TournamentConfig.BASE_TOURNAMENT_CONFIG.round,
+      TournamentConfig.BASE_TOURNAMENT_CONFIG.wordLength,
+    )
+  }, [])
+
+  /**
+   * @description handle delete word from line
+   */
+  const handleDeleteWord = () => {
+    inputWord.length !== 0 && deleteWord?.(currentLine)
   }
 
   useEffect(() => {
@@ -91,7 +100,8 @@ const TournamentScreen = (props: ITournamentScreenTypesProps) => {
   const handleCloseModal = () => {
     setIsWinModalVisible(false)
     setIsLoseModalVisible(false)
-    closeGame?.(!possibleWordLength)
+    closeGame?.(!wordLengthTournament)
+    cleanTournament?.()
   }
 
   /**
@@ -122,12 +132,15 @@ const TournamentScreen = (props: ITournamentScreenTypesProps) => {
     <SWContainer isKeyBoardDismiss={false}>
       <View style={styles.sectionTop}>
         <ClassicGameHeader
-          title={`${possibleWordLength} ${countForm(
-            Number(possibleWordLength),
+          title={`${wordLengthTournament} ${countForm(
+            Number(wordLengthTournament),
             ['буква', 'буквы', 'букв'],
           )}`}
           isLoading={isCheckLoading}
-          onExit={() => closeGame?.(false)}
+          onExit={() => {
+            closeGame?.(false)
+            cleanTournament?.()
+          }}
         />
         <TablePanel
           wordLength={wordLength}

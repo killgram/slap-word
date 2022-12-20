@@ -1,6 +1,14 @@
 import { takeLatest, all } from 'redux-saga/effects'
 import { startup } from './StartupSaga'
-import { app, support, aboutApp, topScore, game, settings } from '@store/types'
+import {
+  app,
+  support,
+  aboutApp,
+  topScore,
+  game,
+  settings,
+  tournament,
+} from '@store/types'
 import { loginRequest, signUpRequest } from './AuthSaga'
 import { logout } from './LogoutSaga'
 import { getSupport } from './SupportSaga'
@@ -13,6 +21,7 @@ import {
   getWord,
 } from './GameSaga'
 import { wrongWordRequest } from './WrongWordSaga'
+import { setTournamentConfig } from './TournamentSaga'
 
 /**
  * @description initialize root saga
@@ -32,6 +41,12 @@ export default function* root(): any {
     takeLatest(settings.ActionTypes.WRONG_WORD_REQUEST, wrongWordRequest),
   ])
   yield all([takeLatest(game.ActionTypes.GET_WORD_REQUEST, getWord)])
+  yield all([
+    takeLatest(
+      tournament.ActionTypes.SET_TOURNAMENT_CONFIG,
+      setTournamentConfig,
+    ),
+  ])
 }
 
 export type RootSaga = ReturnType<typeof root>

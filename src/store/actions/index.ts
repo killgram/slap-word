@@ -4,6 +4,7 @@ import * as supportAction from './support'
 import * as aboutAppAction from './aboutApp'
 import * as topScoreAction from './topScore'
 import * as gameAction from './game'
+import * as tournamentAction from './tournament'
 
 export {
   appAction,
@@ -12,4 +13,5 @@ export {
   aboutAppAction,
   topScoreAction,
   gameAction,
+  tournamentAction,
 }

@@ -3,5 +3,14 @@ import Domains from './Domains'
 import { ApiList, R3D3ApiList } from './ApiList'
 import { ABC } from './Keyboard'
 import GameConfig from './Game'
+import TournamentConfig from './Tournament'
 
-export { Constants, Domains, ApiList, R3D3ApiList, ABC, GameConfig }
+export {
+  Constants,
+  Domains,
+  ApiList,
+  R3D3ApiList,
+  ABC,
+  GameConfig,
+  TournamentConfig,
+}

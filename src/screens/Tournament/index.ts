@@ -3,7 +3,7 @@ import TournamentScreen from './TournamentScreen'
 import { connect } from 'react-redux'
 import { IState, ITournamentScreenTypesProps } from './TournamentScreenTypes'
 import { Dispatch } from 'redux'
-import { gameAction, settingsAction } from '@store/actions'
+import { gameAction, settingsAction, tournamentAction } from '@store/actions'
 
 /**
  * @param {IState} state
@@ -19,6 +19,10 @@ const mapStateToProps = (state: IState): ITournamentScreenTypesProps => ({
   tableWords: state?.game?.tableWords,
   currentLine: state?.game?.currentLine,
   isPostLoading: state?.settings?.isPostLoading,
+  score: state?.tournament?.score,
+  round: state?.tournament?.round,
+  wordLengthTournament: state?.tournament?.wordLength,
+  isDone: state?.tournament?.isDone,
 })
 
 /**
@@ -39,8 +43,9 @@ const mapDispatchToProps = (
     dispatch(settingsAction.wrongWordRequest(word)),
   renderedTableLine: (currentLine: number) =>
     dispatch(gameAction.renderedTableLine(currentLine)),
-  getWordRequest: (length: string) =>
-    dispatch(gameAction.getWordRequest(length)),
+  setTournamentConfig: (score: string, round: number, wordLength: string) =>
+    dispatch(tournamentAction.setTournamentConfig(score, round, wordLength)),
+  cleanTournament: () => dispatch(tournamentAction.cleanTournament()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TournamentScreen)

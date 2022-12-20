@@ -4,5 +4,6 @@ import * as support from '@store/types/support'
 import * as aboutApp from '@store/types/aboutApp'
 import * as topScore from '@store/types/topScore'
 import * as game from '@store/types/game'
+import * as tournament from '@store/types/tournament'
 
-export { app, settings, support, aboutApp, topScore, game }
+export { app, settings, support, aboutApp, topScore, game, tournament }
