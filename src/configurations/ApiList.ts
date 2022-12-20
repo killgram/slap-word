@@ -6,7 +6,6 @@ export enum ApiList {
   CHECK_WORD = '/checkWord',
   GET_TOP_SCORE = '/getTopScore',
   GET_WORD_OF_THE_DAY = '/getWordOfTheDay',
-  SUPPORT = '/support',
   GET_ABOUT_APP = '/getAboutApp',
   // POST
   SIGN_UP = '/signUp',

@@ -10,7 +10,7 @@ import { getThemeColor } from '@utils'
  * @constructor
  */
 const WinNormalModal = (props: IWinNormalModalProps) => {
-  const { visible, closeHandler, onPlayAgain } = props
+  const { visible, closeHandler, onPlayAgain, hitWord } = props
   const styles = getStyle()
 
   return (
@@ -22,6 +22,10 @@ const WinNormalModal = (props: IWinNormalModalProps) => {
       />
       <SWText isTitle inTheCenter style={styles.topTitle}>
         Поздравляем, Вы выиграли!
+      </SWText>
+
+      <SWText style={styles.hitWord} isTitle color={getThemeColor('LINK_TEXT')}>
+        {hitWord}
       </SWText>
 
       {onPlayAgain && (

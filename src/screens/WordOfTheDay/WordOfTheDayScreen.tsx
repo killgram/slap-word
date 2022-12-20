@@ -165,6 +165,7 @@ const WordOfTheDay = (props: IWordOfTheDayTypesProps) => {
 
       <WinNormalModal
         visible={isWinModalVisible}
+        hitWord={hitWord}
         closeHandler={handleCloseModal}
         onPlayAgain={possibleWordLength ? handlePlayAgain : undefined}
       />
