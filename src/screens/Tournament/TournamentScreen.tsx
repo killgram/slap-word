@@ -3,13 +3,13 @@ import { ITournamentScreenTypesProps } from './TournamentScreenTypes'
 import getStyle from './TournamentScreenStyles'
 import { SWContainer, SWText } from '@ui-kit/components'
 import { ActivityIndicator, View } from 'react-native'
-import { countForm, getInputWord, getThemeColor } from '@utils'
+import { getInputWord, getThemeColor } from '@utils'
 import {
-  ClassicGameHeader,
   KeyboardPanel,
   LoseNormalModal,
   TablePanel,
   WinNormalModal,
+  TournamentHeader,
 } from '@components'
 import { TournamentConfig } from '@configurations'
 
@@ -131,11 +131,10 @@ const TournamentScreen = (props: ITournamentScreenTypesProps) => {
   ) : (
     <SWContainer isKeyBoardDismiss={false}>
       <View style={styles.sectionTop}>
-        <ClassicGameHeader
-          title={`${wordLengthTournament} ${countForm(
-            Number(wordLengthTournament),
-            ['буква', 'буквы', 'букв'],
-          )}`}
+        <TournamentHeader
+          wordLength={wordLengthTournament!}
+          round={String(round)}
+          score={score!}
           isLoading={isCheckLoading}
           onExit={() => {
             closeGame?.(false)
